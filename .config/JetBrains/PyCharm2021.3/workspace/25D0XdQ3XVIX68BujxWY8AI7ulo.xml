@@ -1,0 +1,213 @@
+<project version="4">
+  <component name="BookmarksManager">
+    <option name="groups">
+      <GroupState>
+        <option name="name" value="api" />
+      </GroupState>
+    </option>
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="-1">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Pipfile">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="280">
+              <caret line="10" column="10" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/apps/server/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="280">
+              <caret line="10" column="39" lean-forward="true" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
+              <folding>
+                <element signature="e#0#37#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Dockerfile">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="168">
+              <caret line="6" column="8" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTypeUsageLocalSummary">
+    <fileType name="Dockerfile">
+      <summary usageCount="5" lastUsed="1645110356360" />
+    </fileType>
+    <fileType name="GitIgnore file">
+      <summary usageCount="1" lastUsed="1645048401820" />
+    </fileType>
+    <fileType name="Python">
+      <summary usageCount="3" lastUsed="1645110356293" />
+    </fileType>
+    <fileType name="TOML">
+      <summary usageCount="5" lastUsed="1645110356117" />
+    </fileType>
+  </component>
+  <component name="IdeDocumentHistory">
+    <changedPaths>
+      <option value="$PROJECT_DIR$/Dockerfile" />
+      <option value="$PROJECT_DIR$/.gitignore" />
+      <option value="$PROJECT_DIR$/apps/server/urls.py" />
+    </changedPaths>
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="$PROJECT_DIR$/.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1" />
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="api" type="b2602c69:ProjectViewProjectNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="TerminalArrangementManager">
+    <option name="mySelectedTabIndex" value="-1" />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="4175000" />
+  </component>
+  <component name="ToolWindowManager">
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" weight="0.22473958" />
+      <window_info id="Structure" order="1" side_tool="true" />
+      <window_info id="Bookmarks" order="2" side_tool="true" />
+      <window_info id="Commit" order="3" weight="0.20755208" />
+      <window_info id="Pull Requests" order="4" />
+      <window_info anchor="bottom" id="Version Control" order="0" weight="0.3302257" />
+      <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
+      <window_info anchor="bottom" id="Find" order="2" />
+      <window_info anchor="bottom" id="Run" order="3" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="5" />
+      <window_info anchor="bottom" id="Problems View" order="6" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Python Packages" order="8" />
+      <window_info anchor="bottom" id="Internal Method Tracing" order="9" />
+      <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.3302257" />
+      <window_info anchor="bottom" id="Endpoints" order="12" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Python Console" order="13" />
+      <window_info anchor="bottom" id="Mypy" order="14" weight="0.3302257" />
+      <window_info anchor="bottom" id="Services" order="15" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Pylint" order="16" weight="0.3302257" />
+      <window_info anchor="right" id="String Manipulation" order="0" />
+      <window_info anchor="right" id="Database" order="1" />
+      <window_info anchor="right" id="SciView" order="2" />
+      <window_info anchor="right" id="documentation.v2" order="3" side_tool="true" />
+    </layout>
+    <recentWindows>
+      <value>Commit</value>
+      <value>Terminal</value>
+      <value>Pylint</value>
+      <value>Mypy</value>
+      <value>Project</value>
+      <value>Version Control</value>
+    </recentWindows>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="432" y="213" width="1055" height="717" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1645049986388">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state x="432" y="213" width="1055" height="717" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.25.1920.1055/1920.0.1920.1080@0.25.1920.1055" timestamp="1645049986388" />
+    <state x="504" y="85" width="902" height="940" key="CommitChangelistDialog2" timestamp="1645049719252">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state x="504" y="85" width="902" height="940" key="CommitChangelistDialog2/0.25.1920.1055/1920.0.1920.1080@0.25.1920.1055" timestamp="1645049719252" />
+    <state x="733" y="294" width="444" height="522" key="FileChooserDialogImpl" timestamp="1645050198844">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state x="733" y="294" width="444" height="522" key="FileChooserDialogImpl/0.25.1920.1055/1920.0.1920.1080@0.25.1920.1055" timestamp="1645050198844" />
+    <state x="448" y="187" width="1024" height="736" key="SettingsEditor" timestamp="1645110592742">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state x="448" y="187" width="1024" height="736" key="SettingsEditor/0.25.1920.1055/1920.0.1920.1080@0.25.1920.1055" timestamp="1645110592742" />
+    <state x="802" y="464" width="305" height="182" key="VCS.ChangelistChooser" timestamp="1645048771460">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state x="802" y="464" width="305" height="182" key="VCS.ChangelistChooser/0.25.1920.1055/1920.0.1920.1080@0.25.1920.1055" timestamp="1645048771460" />
+    <state x="554" y="287" width="802" height="536" key="Vcs.Push.Dialog.v2" timestamp="1645050401471">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state x="554" y="287" width="802" height="536" key="Vcs.Push.Dialog.v2/0.25.1920.1055/1920.0.1920.1080@0.25.1920.1055" timestamp="1645050401471" />
+    <state x="100" y="125" width="1720" height="855" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1645050200211">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state x="100" y="125" width="1720" height="855" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.25.1920.1055/1920.0.1920.1080@0.25.1920.1055" timestamp="1645050200211" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="127" column="12" lean-forward="true" selection-start-line="127" selection-start-column="12" selection-end-line="127" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Pipfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="10" column="10" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dockerfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="6" column="8" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/server/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="10" column="39" lean-forward="true" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

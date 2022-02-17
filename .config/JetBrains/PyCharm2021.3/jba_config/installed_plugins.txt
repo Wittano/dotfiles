@@ -1,0 +1,10 @@
+mobi.hsz.idea.gitignore
+org.toml.lang
+ski.chrzanow.foldableprojectview
+ru.adelf.idea.dotenv
+net.seesharpsoft.intellij.plugins.csv
+com.your.ltc.flatocean.id
+com.wakatime.intellij.plugin
+String Manipulation
+com.leinardi.pycharm.mypy
+com.leinardi.pycharm.pylint

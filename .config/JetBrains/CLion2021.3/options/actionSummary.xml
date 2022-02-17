@@ -1,0 +1,46 @@
+<application>
+  <component name="ActionsLocalSummary">
+    <e n="$SelectAll">
+      <i c="1" l="1644762955979" />
+    </e>
+    <e n="EditorBackSpace">
+      <i c="2" l="1644762882516" />
+    </e>
+    <e n="EditorPaste">
+      <i c="1" l="1644762956199" />
+    </e>
+    <e n="GotoAction">
+      <i c="2" l="1644762949259" />
+    </e>
+    <e n="ShowSettings">
+      <i c="2" l="1644762871150" />
+    </e>
+    <e n="Vcs.VcsClone">
+      <i c="1" l="1644762522352" />
+    </e>
+    <e n="WelcomeScreen.OpenDirectoryProject">
+      <i c="1" l="1644762718359" />
+    </e>
+    <e n="com.intellij.cloudConfig.CloudConfigSyncPluginsSilentlyAction">
+      <i c="1" l="1644762849016" />
+    </e>
+    <e n="com.intellij.cloudConfig.CloudConfigWidget$1">
+      <i c="1" l="1644762769076" />
+    </e>
+    <e n="com.intellij.openapi.project.DumbAwareAction$SimpleDumbAwareAction">
+      <i c="2" l="1644762953918" />
+    </e>
+    <e n="com.intellij.openapi.wm.impl.welcomeScreen.WelcomeScreenComponentFactory$3">
+      <i c="1" l="1644762459053" />
+    </e>
+    <e n="com.intellij.ui.ScrollingUtil$ListMoveDownAction">
+      <i c="3" l="1644762886941" />
+    </e>
+    <e n="com.intellij.ui.ScrollingUtil$ListMoveUpAction">
+      <i c="2" l="1644762887494" />
+    </e>
+    <e n="pluginMenu">
+      <i c="1" d="1" l="1644762953933" k="1644762953933" />
+    </e>
+  </component>
+</application>

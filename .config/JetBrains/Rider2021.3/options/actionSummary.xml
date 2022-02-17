@@ -1,0 +1,28 @@
+<application>
+  <component name="ActionsLocalSummary">
+    <e n="EditorBackSpace">
+      <i c="3" l="1644763019586" />
+    </e>
+    <e n="GotoAction">
+      <i c="1" l="1644763016968" />
+    </e>
+    <e n="RiderNewSolution">
+      <i c="1" l="1644790908386" />
+    </e>
+    <e n="WelcomeScreen.Plugins">
+      <i c="1" l="1644762965735" />
+    </e>
+    <e n="WelcomeScreen.Settings">
+      <i c="1" l="1644763009028" />
+    </e>
+    <e n="com.intellij.openapi.project.DumbAwareAction$SimpleDumbAwareAction">
+      <i c="1" l="1644763022350" />
+    </e>
+    <e n="com.intellij.openapi.wm.impl.welcomeScreen.WelcomeScreenComponentFactory$3">
+      <i c="2" l="1644763007843" />
+    </e>
+    <e n="pluginMenu">
+      <i c="1" d="1" l="1644763022369" k="1644763022369" />
+    </e>
+  </component>
+</application>

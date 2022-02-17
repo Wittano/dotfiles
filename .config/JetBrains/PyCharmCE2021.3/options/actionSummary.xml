@@ -1,0 +1,37 @@
+<application>
+  <component name="ActionsLocalSummary">
+    <e n="ChangesView.Refresh">
+      <i c="1" l="1645049448764" />
+    </e>
+    <e n="EditorBackSpace">
+      <i c="3" l="1645110579481" />
+    </e>
+    <e n="EditorDeleteToWordStart">
+      <i c="5" l="1645049434408" />
+    </e>
+    <e n="GotoAction">
+      <i c="1" l="1645110586368" />
+    </e>
+    <e n="SaveAll">
+      <i c="4" l="1645110616966" />
+    </e>
+    <e n="ShowSettings">
+      <i c="4" l="1645110601462" />
+    </e>
+    <e n="WelcomeScreen.OpenDirectoryProject">
+      <i c="1" l="1645049001934" />
+    </e>
+    <e n="com.intellij.notification.NotificationAction$Simple">
+      <i c="2" l="1645110527991" />
+    </e>
+    <e n="com.intellij.openapi.project.DumbAwareAction$SimpleDumbAwareAction">
+      <i c="1" l="1645110589336" />
+    </e>
+    <e n="git4idea.ignore.actions.AddToGitExcludeAction">
+      <i c="1" l="1645049465388" />
+    </e>
+    <e n="pluginMenu">
+      <i c="1" d="1" l="1645110589354" k="1645110589354" />
+    </e>
+  </component>
+</application>

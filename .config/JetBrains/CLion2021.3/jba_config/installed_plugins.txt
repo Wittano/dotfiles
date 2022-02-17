@@ -1,0 +1,6 @@
+nix-idea
+com.wakatime.intellij.plugin
+fctorial.enter_nix_shell
+ru.adelf.idea.dotenv
+izhangzhihao.rainbow.brackets
+mobi.hsz.idea.gitignore

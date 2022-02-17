@@ -1,0 +1,38 @@
+<application>
+  <component name="DynamicPluginEnabler">
+    <trackers>
+      <map>
+        <entry key="253jZyJgzwHuBfUCwvvIqcGQGNZ">
+          <value>
+            <ProjectPluginTracker />
+          </value>
+        </entry>
+      </map>
+    </trackers>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="CWM_LOGGING_VERSION" value="1" />
+    <property name="InstalledPluginsSearchHistory" value="waka&#10;wak&#10;wa" />
+    <property name="MarketplacePluginsSearchHistory" value="waka" />
+    <property name="NonModalCommitCustomization.IsApplied" value="true" />
+    <property name="PluginConfigurable.selectionTab" value="1" />
+    <property name="SettingsSearchHistory" value="waka" />
+    <property name="appcds.runOnSecondStart" value="CL-213.6777.58-539495d9436bb958e1f3596f91ae199f0885d61040ab8816f472b550400fc682" />
+    <property name="ask.about.ctrl.y.shortcut.v2" value="true" />
+    <property name="bundled.plugins.list.saved.version" value="CL-213.6777.58" />
+    <property name="clion.initialConfigPerformed" value="true" />
+    <property name="evlsprt3.213" value="4" />
+    <property name="file.chooser.recent.files" value="$USER_HOME$/projects/http-simple" />
+    <property name="file.gist.reindex.count" value="3" />
+    <property name="fileTypeChangedCounter" value="2" />
+    <property name="fileTypeDetectors" value="com.intellij.database.vfs.DbStorageFileType$Detector:com.intellij.docker.dockerFile.DockerFileTypeDetector:com.intellij.ide.scratch.ScratchFileServiceImpl$Detector:com.jetbrains.cidr.lang.OCHeaderFileTypeDetector:org.jetbrains.plugins.textmate.TextMateFileType$TextMateFileDetector" />
+    <property name="got.it.tooltip.cwm.invitation.notification" value="1" />
+    <property name="gotit.previous.run" value="CL-213.6777.58" />
+    <property name="ide.updates.whats.new.shown.for" value="213" />
+    <property name="input.method.disabler.muted" value="true" />
+    <property name="last_opened_file_path" value="$USER_HOME$/projects/http-simple" />
+    <property name="registry.to.advanced.settings.migration.build" value="CL-213.6777.58" />
+    <property name="tasks.pass.word.conversion.enforced" value="true" />
+    <property name="ts.lib.d.ts.version" value="4.5.4" />
+  </component>
+</application>

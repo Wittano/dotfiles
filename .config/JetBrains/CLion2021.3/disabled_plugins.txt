@@ -1,0 +1,17 @@
+HtmlTools
+JSIntentionPowerPack
+JavaScript
+JavaScriptDebugger
+PerforceDirectPlugin
+Subversion
+XPathView
+com.intellij.css
+com.intellij.diagram
+com.jetbrains.plugins.webDeployment
+hg4idea
+org.coffeescript
+org.jetbrains.plugins.less
+org.jetbrains.plugins.sass
+org.jetbrains.plugins.stylus
+tanvd.grazi
+tslint

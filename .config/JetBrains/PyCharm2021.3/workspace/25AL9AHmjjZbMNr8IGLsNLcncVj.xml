@@ -1,0 +1,178 @@
+<project version="4">
+  <component name="BookmarksManager">
+    <option name="groups">
+      <GroupState>
+        <option name="name" value="tasks-web" />
+      </GroupState>
+    </option>
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="-1">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Pipfile">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="364">
+              <caret line="13" selection-start-line="13" selection-end-line="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="273">
+              <caret line="114" column="11" selection-start-line="114" selection-start-column="11" selection-end-line="114" selection-end-column="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTypeUsageLocalSummary">
+    <fileType name="GitIgnore file">
+      <summary usageCount="3" lastUsed="1645045410592" />
+    </fileType>
+    <fileType name="Markdown">
+      <summary usageCount="4" lastUsed="1645045410399" />
+    </fileType>
+    <fileType name="TOML">
+      <summary usageCount="3" lastUsed="1645045410540" />
+    </fileType>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>Pycharm</find>
+    </findStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <changedPaths>
+      <option value="$PROJECT_DIR$/Pipfile" />
+      <option value="$PROJECT_DIR$/.gitignore" />
+    </changedPaths>
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="$PROJECT_DIR$/.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1" />
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="tasks-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tasks-web" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="TerminalArrangementManager">
+    <option name="myTabStates">
+      <TerminalTabState tabName="Local" currentWorkingDirectory="$PROJECT_DIR$" commandHistoryFileName="tasks-web-history" />
+    </option>
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="1037000" />
+  </component>
+  <component name="ToolWindowManager">
+    <editor active="true" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" weight="0.2502604" />
+      <window_info id="Structure" order="1" side_tool="true" />
+      <window_info id="Bookmarks" order="2" side_tool="true" />
+      <window_info id="Commit" order="3" visible="true" weight="0.32994792" />
+      <window_info id="Pull Requests" order="4" weight="0.32994792" />
+      <window_info anchor="bottom" id="Version Control" order="0" />
+      <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
+      <window_info anchor="bottom" id="Find" order="2" />
+      <window_info anchor="bottom" id="Run" order="3" weight="0.3302257" />
+      <window_info anchor="bottom" id="TODO" order="4" />
+      <window_info anchor="bottom" id="Problems View" order="5" />
+      <window_info anchor="bottom" id="Debug" order="6" weight="0.4" />
+      <window_info anchor="bottom" id="Python Packages" order="7" />
+      <window_info anchor="bottom" id="Internal Method Tracing" order="8" />
+      <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
+      <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.3302257" />
+      <window_info anchor="bottom" id="Python Console" order="12" />
+      <window_info anchor="bottom" id="Endpoints" order="13" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Services" order="14" show_stripe_button="false" />
+      <window_info anchor="right" id="String Manipulation" order="0" />
+      <window_info anchor="right" id="Database" order="1" />
+      <window_info anchor="right" id="SciView" order="2" />
+    </layout>
+    <recentWindows>
+      <value>Terminal</value>
+      <value>Project</value>
+      <value>Commit</value>
+      <value>Run</value>
+      <value>Pull Requests</value>
+    </recentWindows>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="432" y="213" width="1055" height="717" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1644965496763">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state x="432" y="213" width="1055" height="717" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.25.1920.1055/1920.0.1920.1080@0.25.1920.1055" timestamp="1644965496763" />
+    <state x="733" y="294" width="453" height="522" key="FileChooserDialogImpl" timestamp="1645045517285">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state x="733" y="294" width="453" height="522" key="FileChooserDialogImpl/0.25.1920.1055/1920.0.1920.1080@0.25.1920.1055" timestamp="1645045517285" />
+    <state width="261" height="202" key="Git.Branch.Popup" timestamp="1644965427225">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state width="261" height="202" key="Git.Branch.Popup/0.25.1920.1055/1920.0.1920.1080@0.25.1920.1055" timestamp="1644965427225" />
+    <state width="1872" height="308" key="GridCell.Tab.0.bottom" timestamp="1644965642981">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state width="1872" height="308" key="GridCell.Tab.0.bottom/0.25.1920.1055/1920.0.1920.1080@0.25.1920.1055" timestamp="1644965642981" />
+    <state width="1872" height="308" key="GridCell.Tab.0.center" timestamp="1644965642981">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state width="1872" height="308" key="GridCell.Tab.0.center/0.25.1920.1055/1920.0.1920.1080@0.25.1920.1055" timestamp="1644965642981" />
+    <state width="1872" height="308" key="GridCell.Tab.0.left" timestamp="1644965642981">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state width="1872" height="308" key="GridCell.Tab.0.left/0.25.1920.1055/1920.0.1920.1080@0.25.1920.1055" timestamp="1644965642981" />
+    <state width="1872" height="308" key="GridCell.Tab.0.right" timestamp="1644965642981">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state width="1872" height="308" key="GridCell.Tab.0.right/0.25.1920.1055/1920.0.1920.1080@0.25.1920.1055" timestamp="1644965642981" />
+    <state x="447" y="207" width="1024" height="736" key="SettingsEditor" timestamp="1644965494422">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state x="447" y="207" width="1024" height="736" key="SettingsEditor/0.25.1920.1055/1920.0.1920.1080@0.25.1920.1055" timestamp="1644965494422" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Pipfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="114" column="11" lean-forward="true" selection-start-line="114" selection-start-column="11" selection-end-line="114" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

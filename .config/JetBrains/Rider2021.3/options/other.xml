@@ -1,0 +1,42 @@
+<application>
+  <component name="DynamicPluginEnabler">
+    <trackers>
+      <map>
+        <entry key="Default (Template) Project">
+          <value>
+            <ProjectPluginTracker />
+          </value>
+        </entry>
+      </map>
+    </trackers>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Debug.Allow.Typing" value="true" />
+    <property name="InstalledPluginsSearchHistory" value="waka&#10;wa" />
+    <property name="MarketplacePluginsSearchHistory" value="waka" />
+    <property name="NonModalCommitCustomization.IsApplied" value="true" />
+    <property name="PluginConfigurable.selectionTab" value="1" />
+    <property name="RD.Init.Cfg.2" value="true" />
+    <property name="RD.Init.DialogShown.Ide" value="true" />
+    <property name="RD.Switch.Laf" value="true" />
+    <property name="Rider.Last.Started.IDE.Build" value="RD-213.6775.4" />
+    <property name="SettingsSearchHistory" value="waka" />
+    <property name="Tutorials.In.Recent.Projects.Disabled" value="true" />
+    <property name="ask.about.ctrl.y.shortcut.v2" value="true" />
+    <property name="bundled.plugins.list.saved.version" value="RD-213.6775.4" />
+    <property name="evlsprt3.213" value="5" />
+    <property name="experimentalFeature.editor.reader.mode" value="false" />
+    <property name="fileTypeChangedCounter" value="2" />
+    <property name="fileTypeDetectors" value="com.intellij.database.vfs.DbStorageFileType$Detector:com.intellij.docker.dockerFile.DockerFileTypeDetector:com.intellij.ide.scratch.ScratchFileServiceImpl$Detector:com.intellij.javascript.debugger.sourcemap.SourceMapFileType$MyFileTypeDetector:com.jetbrains.nodejs.util.NodeFileTypeDetector$JavaScriptFileTypeDetector:com.jetbrains.nodejs.util.NodeFileTypeDetector$TypeScriptFileTypeDetector:com.jetbrains.rider.cpp.fileType.CppHeaderFileTypeDetector:org.jetbrains.plugins.textmate.TextMateFileType$TextMateFileDetector" />
+    <property name="got.it.tooltip.rider.problems.view" value="1" />
+    <property name="ide.updates.whats.new.shown.for" value="212" />
+    <property name="ignoreUltimateEdition" value="true" />
+    <property name="input.method.disabler.muted" value="true" />
+    <property name="last_selected_template" value="More Templates|" />
+    <property name="tasks.pass.word.conversion.enforced" value="true" />
+    <property name="toolwindow.stripes.buttons.info.shown" value="true" />
+  </component>
+  <component name="ToolbarSettingsService">
+    <option name="SHOW_NEW_MAIN_TOOLBAR" value="true" />
+  </component>
+</application>

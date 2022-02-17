@@ -1,0 +1,30 @@
+<application>
+  <component name="WindowManager">
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info anchor="bottom" id="Version Control" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
+    </layout>
+  </component>
+  <component name="WindowStateApplicationService">
+    <state x="377" y="230" width="800" height="534" key="Rider.ProjectTemplateDialog.Size" timestamp="1644790944686">
+      <screen x="0" y="26" width="1920" height="1054" />
+    </state>
+    <state x="377" y="230" width="800" height="534" key="Rider.ProjectTemplateDialog.Size/0.26.1920.1054/1920.0.1920.1080" timestamp="1644790944686" />
+    <state x="821" y="136" width="1022" height="734" key="SettingsEditor" timestamp="1644763015507">
+      <screen x="0" y="26" width="1920" height="1054" />
+    </state>
+    <state x="821" y="136" width="1022" height="734" key="SettingsEditor/0.26.1920.1054/1920.0.1920.1080" timestamp="1644763015507" />
+    <state x="782" y="495" width="800" height="600" key="WELCOME_SCREEN" timestamp="1644790945962">
+      <screen x="0" y="26" width="1920" height="1054" />
+    </state>
+    <state x="782" y="495" width="800" height="600" key="WELCOME_SCREEN/0.26.1920.1054/1920.0.1920.1080" timestamp="1644790945962" />
+    <state x="2543" y="279" width="672" height="687" key="search.everywhere.popup" timestamp="1644763022355">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2543" y="279" width="672" height="687" key="search.everywhere.popup/0.26.1920.1054/1920.0.1920.1080" timestamp="1644763022355" />
+  </component>
+</application>
