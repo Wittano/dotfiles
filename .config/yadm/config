@@ -1,2 +1,15 @@
 [yadm]
 	auto-alt = true
+[user]
+	name = Wittano
+	email = radoslaw.ratyna@gmail.com
+[core]
+	editor = vim
+[credential]
+	helper = store
+[init]
+	defaultBranch = main
+[pull]
+	rebase = true
+[commit]
+	gpgsign = true
