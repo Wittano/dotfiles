@@ -9,11 +9,14 @@
     <e n="EditorDeleteToWordStart">
       <i c="5" l="1645049434408" />
     </e>
+    <e n="ExportSettings">
+      <i c="1" l="1645110630977" />
+    </e>
     <e n="GotoAction">
       <i c="1" l="1645110586368" />
     </e>
     <e n="SaveAll">
-      <i c="4" l="1645110616966" />
+      <i c="6" l="1645110826054" />
     </e>
     <e n="ShowSettings">
       <i c="4" l="1645110601462" />

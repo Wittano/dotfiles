@@ -11,8 +11,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Pipfile">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="251">
-              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+            <state relative-caret-position="363">
+              <caret line="13" column="25" lean-forward="true" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -96,6 +96,10 @@
     </recentWindows>
   </component>
   <component name="WindowStateProjectService">
+    <state x="696" y="388" width="518" height="335" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog" timestamp="1645110650800">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state x="696" y="388" width="518" height="335" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog/0.25.1920.1055/1920.0.1920.1080@0.25.1920.1055" timestamp="1645110650800" />
     <state x="738" y="334" width="463" height="490" key="FileChooserDialogImpl" timestamp="1645049443687">
       <screen x="0" y="25" width="1920" height="1055" />
     </state>
@@ -125,8 +129,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Pipfile">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+        <state relative-caret-position="363">
+          <caret line="13" column="25" lean-forward="true" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="25" />
         </state>
       </provider>
     </entry>
