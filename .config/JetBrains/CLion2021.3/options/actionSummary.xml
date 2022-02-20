@@ -3,17 +3,92 @@
     <e n="$SelectAll">
       <i c="1" l="1644762955979" />
     </e>
+    <e n="Build">
+      <i c="1" l="1645279889162" />
+    </e>
+    <e n="CIDR.Debugger.DebugCoreDumpAction">
+      <i c="1" d="1" l="1645279508822" k="1645279508822" />
+    </e>
+    <e n="CIDR.Debugger.ShowMemoryViewInEditor">
+      <i c="1" l="1645279699257" />
+    </e>
+    <e n="CPP.CreateCMakeProject">
+      <i c="1" l="1645279077776" />
+    </e>
+    <e n="CodeCompletion">
+      <i c="3" l="1645279207421" />
+    </e>
+    <e n="Debug">
+      <i c="2" l="1645279692570" />
+    </e>
     <e n="EditorBackSpace">
-      <i c="2" l="1644762882516" />
+      <i c="7" l="1645279226949" />
+    </e>
+    <e n="EditorChooseLookupItem">
+      <i c="3" l="1645279224137" />
+    </e>
+    <e n="EditorDeleteToWordStart">
+      <i c="16" l="1645279532132" />
+    </e>
+    <e n="EditorDown">
+      <i c="2" l="1645279186837" />
+    </e>
+    <e n="EditorEnter">
+      <i c="1" l="1645279187535" />
+    </e>
+    <e n="EditorEscape">
+      <i c="2" l="1645279227437" />
+    </e>
+    <e n="EditorLeft">
+      <i c="1" l="1645279193308" />
+    </e>
+    <e n="EditorNextWord">
+      <i c="1" l="1645279220422" />
     </e>
     <e n="EditorPaste">
       <i c="1" l="1644762956199" />
     </e>
+    <e n="EditorPreviousWord">
+      <i c="1" l="1645279209662" />
+    </e>
+    <e n="EditorRight">
+      <i c="2" l="1645279197713" />
+    </e>
+    <e n="EditorUp">
+      <i c="2" l="1645279187158" />
+    </e>
+    <e n="FileChooser.Refresh">
+      <i c="1" l="1645279521970" />
+    </e>
     <e n="GotoAction">
-      <i c="2" l="1644762949259" />
+      <i c="3" l="1645279501045" />
+    </e>
+    <e n="GotoDeclaration">
+      <i c="3" l="1645279757012" />
+    </e>
+    <e n="ParameterInfo">
+      <i c="3" l="1645279221461" />
+    </e>
+    <e n="QuickJavaDoc">
+      <i c="1" l="1645279744734" />
+    </e>
+    <e n="Resume">
+      <i c="1" l="1645279655786" />
+    </e>
+    <e n="Run">
+      <i c="1" l="1645279659410" />
+    </e>
+    <e n="SaveAll">
+      <i c="7" l="1645279881768" />
     </e>
     <e n="ShowSettings">
-      <i c="2" l="1644762871150" />
+      <i c="3" l="1645279063964" />
+    </e>
+    <e n="Stop">
+      <i c="1" l="1645279887130" />
+    </e>
+    <e n="ToggleLineBreakpoint">
+      <i c="1" l="1645279231380" />
     </e>
     <e n="Vcs.VcsClone">
       <i c="1" l="1644762522352" />
@@ -21,14 +96,20 @@
     <e n="WelcomeScreen.OpenDirectoryProject">
       <i c="1" l="1644762718359" />
     </e>
+    <e n="XDebugger.RemoveAllWatches">
+      <i c="1" l="1645279776068" />
+    </e>
     <e n="com.intellij.cloudConfig.CloudConfigSyncPluginsSilentlyAction">
       <i c="1" l="1644762849016" />
     </e>
     <e n="com.intellij.cloudConfig.CloudConfigWidget$1">
       <i c="1" l="1644762769076" />
     </e>
+    <e n="com.intellij.execution.actions.RunConfigurationsComboBoxAction$SelectConfigAction">
+      <i c="2" l="1645279651079" />
+    </e>
     <e n="com.intellij.openapi.project.DumbAwareAction$SimpleDumbAwareAction">
-      <i c="2" l="1644762953918" />
+      <i c="3" l="1645279508798" />
     </e>
     <e n="com.intellij.openapi.wm.impl.welcomeScreen.WelcomeScreenComponentFactory$3">
       <i c="1" l="1644762459053" />
@@ -38,6 +119,12 @@
     </e>
     <e n="com.intellij.ui.ScrollingUtil$ListMoveUpAction">
       <i c="2" l="1644762887494" />
+    </e>
+    <e n="com.intellij.xdebugger.impl.inline.XDebuggerTreeInlayPopup$ActionWrapper">
+      <i c="1" l="1645279764130" />
+    </e>
+    <e n="editRunConfigurations">
+      <i c="2" l="1645279582596" />
     </e>
     <e n="pluginMenu">
       <i c="1" d="1" l="1644762953933" k="1644762953933" />

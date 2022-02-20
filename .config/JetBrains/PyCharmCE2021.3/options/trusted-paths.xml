@@ -3,6 +3,10 @@
     <option name="TRUSTED_PROJECT_PATHS">
       <map>
         <entry key="$USER_HOME$/projects/MineServ/api" value="true" />
+        <entry key="$USER_HOME$/projects/qtile" value="true" />
+        <entry key="$USER_HOME$/projects/traning/async" value="true" />
+        <entry key="$USER_HOME$/projects/traning/flake" value="true" />
+        <entry key="$USER_HOME$/projects/traning/flask" value="true" />
       </map>
     </option>
   </component>

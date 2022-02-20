@@ -21,11 +21,11 @@
     </panes>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="174000" />
+    <option name="totallyTimeSpent" value="264000" />
   </component>
   <component name="ToolWindowManager">
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25035715" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18255208" />
       <window_info id="Structure" order="1" side_tool="true" />
       <window_info id="Bookmarks" order="2" side_tool="true" />
       <window_info id="Commit" order="3" />
@@ -45,7 +45,7 @@
       <window_info anchor="bottom" id="Terminal" order="12" />
       <window_info anchor="bottom" id="Flow" order="13" />
       <window_info anchor="bottom" id="clangd" order="14" />
-      <window_info anchor="bottom" id="CMake" order="15" visible="true" weight="0.32971013" />
+      <window_info anchor="bottom" id="CMake" order="15" visible="true" weight="0.32924438" />
       <window_info anchor="bottom" id="Python Packages" order="16" />
       <window_info anchor="bottom" id="Services" order="17" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="0" />
@@ -57,9 +57,10 @@
     </recentWindows>
   </component>
   <component name="WindowStateProjectService">
-    <state x="449" y="188" width="1022" height="734" key="SettingsEditor" timestamp="1644762923207">
-      <screen x="0" y="26" width="1920" height="1054" />
+    <state x="449" y="187" width="1022" height="736" key="SettingsEditor" timestamp="1645279073518">
+      <screen x="0" y="25" width="1920" height="1055" />
     </state>
+    <state x="449" y="187" width="1022" height="736" key="SettingsEditor/0.25.1920.1055/1920.0.1920.1080@0.25.1920.1055" timestamp="1645279073518" />
     <state x="449" y="188" width="1022" height="734" key="SettingsEditor/0.26.1920.1054/1920.0.1920.1080@0.26.1920.1054" timestamp="1644762923207" />
     <state x="623" y="272" width="672" height="687" key="search.everywhere.popup" timestamp="1644762953922">
       <screen x="0" y="26" width="1920" height="1054" />

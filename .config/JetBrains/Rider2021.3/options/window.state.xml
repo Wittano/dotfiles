@@ -1,5 +1,6 @@
 <application>
   <component name="WindowManager">
+    <frame x="0" y="25" width="1920" height="1055" extendedState="6" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info anchor="bottom" id="Version Control" order="0" />
@@ -10,6 +11,10 @@
     </layout>
   </component>
   <component name="WindowStateApplicationService">
+    <state x="743" y="234" width="424" height="490" key="FileChooserDialogImpl" timestamp="1645202571716">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state x="743" y="234" width="424" height="490" key="FileChooserDialogImpl/0.25.1920.1055/1920.0.1920.1080" timestamp="1645202571716" />
     <state x="377" y="230" width="800" height="534" key="Rider.ProjectTemplateDialog.Size" timestamp="1644790944686">
       <screen x="0" y="26" width="1920" height="1054" />
     </state>
@@ -18,9 +23,10 @@
       <screen x="0" y="26" width="1920" height="1054" />
     </state>
     <state x="821" y="136" width="1022" height="734" key="SettingsEditor/0.26.1920.1054/1920.0.1920.1080" timestamp="1644763015507" />
-    <state x="782" y="495" width="800" height="600" key="WELCOME_SCREEN" timestamp="1644790945962">
-      <screen x="0" y="26" width="1920" height="1054" />
+    <state x="960" y="476" width="800" height="601" key="WELCOME_SCREEN" timestamp="1645202890946">
+      <screen x="0" y="25" width="1920" height="1055" />
     </state>
+    <state x="960" y="476" width="800" height="601" key="WELCOME_SCREEN/0.25.1920.1055/1920.0.1920.1080" timestamp="1645202890946" />
     <state x="782" y="495" width="800" height="600" key="WELCOME_SCREEN/0.26.1920.1054/1920.0.1920.1080" timestamp="1644790945962" />
     <state x="2543" y="279" width="672" height="687" key="search.everywhere.popup" timestamp="1644763022355">
       <screen x="1920" y="0" width="1920" height="1080" />

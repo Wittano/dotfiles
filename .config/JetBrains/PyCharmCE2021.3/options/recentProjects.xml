@@ -4,17 +4,53 @@
       <map>
         <entry key="$USER_HOME$/projects/MineServ/api">
           <value>
-            <RecentProjectMetaInfo frameTitle="api – Pipfile" opened="true" projectWorkspaceId="25D0XdQ3XVIX68BujxWY8AI7ulo">
+            <RecentProjectMetaInfo frameTitle="mineserv-api – settings.py" projectWorkspaceId="25D0XdQ3XVIX68BujxWY8AI7ulo">
               <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
               <option name="build" value="PC-213.6777.50" />
               <option name="buildTimestamp" value="1643299567110" />
-              <frame x="252" y="25" width="1400" height="1000" />
+              <frame x="0" y="25" width="1920" height="1055" extendedState="6" />
               <option name="productionCode" value="PC" />
               <option name="projectOpenTimestamp" value="1645049024990" />
             </RecentProjectMetaInfo>
           </value>
         </entry>
+        <entry key="$USER_HOME$/projects/qtile">
+          <value>
+            <RecentProjectMetaInfo frameTitle="qtile – xmonad.py" projectWorkspaceId="25IFfFE0CyCoi3Er1dAIY1vB4QO">
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="build" value="PC-213.6777.50" />
+              <option name="buildTimestamp" value="1643299563261" />
+              <frame x="0" y="25" width="1920" height="1055" extendedState="6" />
+              <option name="productionCode" value="PC" />
+              <option name="projectOpenTimestamp" value="1645206794592" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/projects/traning/async">
+          <value>
+            <RecentProjectMetaInfo frameTitle="async – main.py" projectWorkspaceId="25LIyXlbYZBG5H0ZiqTtfZZKOh6">
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="build" value="PC-213.6777.50" />
+              <option name="buildTimestamp" value="1643299613191" />
+              <frame x="0" y="25" width="1920" height="1055" extendedState="6" />
+              <option name="productionCode" value="PC" />
+              <option name="projectOpenTimestamp" value="1645300196808" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/projects/traning/flask">
+          <value>
+            <RecentProjectMetaInfo opened="true" projectWorkspaceId="25My5ObSCSqNsfojf2WIKkuJ9YA">
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="build" value="PC-213.6777.50" />
+              <option name="buildTimestamp" value="1643299603864" />
+              <option name="productionCode" value="PC" />
+              <option name="projectOpenTimestamp" value="1645351065715" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
       </map>
     </option>
+    <option name="lastProjectLocation" value="$USER_HOME$/projects/traning" />
   </component>
 </application>
