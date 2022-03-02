@@ -23,8 +23,14 @@
       shell:
         cmd: /usr/bin/curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh
         creates: "{{ global.home }}/oh-my-zsh"
-    - name: Copy zsh config
-      copy:
+    - name: Check .zshrc is deployed
+      stat:
+        path: "{{ global.home }}/.zshrc"
+      register: zsh_config
+    - name: Depoly zsh config
+      file:
         src: "{{ global.config_dir }}/.zshrc"
         dest: "{{ global.home }}/.zshrc"
         owner: wittano
+        state: link
+      when: zsh_config.stat.exists == false
