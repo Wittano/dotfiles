@@ -1,0 +1,19 @@
+- name: Install redshift on Arch Linux
+  pacman:
+    name: redshift
+  when: ansible_facts['os_family'] == "ArchLinux"
+- name: Install redshift on Debian
+  apt:
+    name: redshift
+  when: ansible_facts['os_family'] == "Debian"
+- name: Check if redshift config exist
+  stat:
+    path: "{{ global.config_dir }}/.config/redshift.conf"
+  register: tint2
+- name:
+  file:
+    src: "{{ global.config_dir }}/.config/redshift.conf"
+    dest: "{{ global.home }}/.config/redshift.conf"
+    owner: wittano
+    state: link
+  when: not tint2.stat.exists

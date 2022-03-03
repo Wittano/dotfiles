@@ -13,7 +13,6 @@
       pacman:
         name:
           - openbox
-          - redshift
           - nitrogen
           - notify-osd
           - flameshot
@@ -30,3 +29,5 @@
       when: dracula_theme
     - name: Import tint2 tasks
       import_tasks: tint2.yml
+    - name: Import redshift tasks
+      import_tasks: redshift.yml
