@@ -13,7 +13,6 @@
       pacman:
         name:
           - openbox
-          - tint2
           - redshift
           - nitrogen
           - notify-osd
@@ -26,6 +25,8 @@
           - alacritty
       when: ansible_facts['os_family'] == "Archlinux"
     # TODO: Added openbox-menu installation from AUR. https://github.com/kewlfft/ansible-aur
-    - name: "Import dracula theme"
+    - name: Import dracula theme
       import_tasks: dracula.yml
       when: dracula_theme
+    - name: Import tint2 tasks
+      import_tasks: tint2.yml

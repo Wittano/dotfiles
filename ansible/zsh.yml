@@ -33,4 +33,4 @@
         dest: "{{ global.home }}/.zshrc"
         owner: wittano
         state: link
-      when: zsh_config.stat.exists == false
+      when: not zsh_config.stat.exists

@@ -1,0 +1,14 @@
+- name: Install tint2
+  pacman: 
+    name: tint2
+- name: Check if exist tint2 directory
+  stat:
+    path: "{{ global.home }}/.config/tint2"
+  register: tint2
+- name: Link tint2 config
+  file:
+    src: "{{ global.config_dir }}/.config/tint2"
+    dest: "{{ global.home }}/.config/tint2"
+    owner: wittano
+    state: link
+  when: not tint2.stat.exists
