@@ -1,0 +1,28 @@
+- name: Import global variables
+  include_vars:
+    file: "env.yml"
+    name: global
+- name: Create .themes directory
+  file:
+    path: "{{ global.home }}/.themes"
+    state: directory
+- name: Install dracula-openbox theme
+  git:
+    repo: https://github.com/dracula/openbox.git
+    dest: "{{ global.home }}/.themes/dracula-openbox"
+    clone: yes
+- name: Install dracula-gtk theme
+  git:
+    repo: https://github.com/dracula/gtk.git
+    dest: "{{ global.home }}/.themes/dracula-gtk"
+    clone: yes
+- name: Create .icons directory
+  file:
+    path: "{{ global.home }}/.themes"
+    state: directory
+- name: Download dracula-icons icon theme
+  unarchive:
+    creates: "{{ global.home }}/.icons/Dracula"
+    dest: "{{ global.home }}/.icons/Dracula"
+    src: https://github.com/dracula/gtk/files/5214870/Dracula.zip
+    owner: wittano
