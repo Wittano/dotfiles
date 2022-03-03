@@ -1,6 +1,11 @@
-- name: Install tint2
+- name: Install tint2 on Archlinux
   pacman: 
     name: tint2
+  when: ansible_facts['os_family'] == "Archlinux"
+- name: Install tint2 on Debian
+  apt: 
+    name: tint2
+  when: ansible_facts['os_family'] == "Debian" 
 - name: Check if exist tint2 directory
   stat:
     path: "{{ global.home }}/.config/tint2"
