@@ -19,7 +19,6 @@
           - nautilus
           - obconf
           - vivaldi
-          - alacritty
       when: ansible_facts['os_family'] == "Archlinux"
     - name: Check if openbox directory is exist
       stat:
@@ -44,3 +43,5 @@
       import_tasks: modules/nitrogen.yml
     - name: Import rofi tasks
       import_tasks: modules/rofi.yml
+    - name: Import alacritty tasks
+      import_tasks: modules/alacritty.yml

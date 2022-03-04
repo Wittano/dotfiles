@@ -1,0 +1,19 @@
+- name: Install alacritty on Arch Linux
+  pacman:
+    name: alacritty
+  when: ansible_facts['os_family'] == 'ArchLinux'
+- name: Install alacritty on Debian
+  apt:
+    name: alacritty
+  when: ansible_facts['os_family'] == 'Debian'
+- name: Check if alacritty configuration directory exist
+  stat:
+    path: "{{ global.home }}/.config/alacritty"
+  register: alacritty
+- name: Link alacritty config
+  file:
+    src: "{{ global.config_dir }}/.config/alacritty"
+    dest: "{{ global.home }}/.config/alacritty"
+    state: link
+    owner: wittano
+  when: not alacritty.stat.exists
