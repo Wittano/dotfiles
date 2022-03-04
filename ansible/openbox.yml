@@ -20,6 +20,17 @@
           - obconf
           - vivaldi
       when: ansible_facts['os_family'] == "Archlinux"
+    - name: Install openbox dependences on Debian
+      apt:
+        name:
+          - openbox
+          - notify-osd
+          - flameshot
+          - xautolock
+          - nautilus
+          - obconf
+          - vivaldi
+      when: ansible_facts['os_family'] == "Debian"
     - name: Check if openbox directory is exist
       stat:
         path: "{{ global.home }}/.config/openbox"
