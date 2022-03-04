@@ -20,7 +20,7 @@
           - obconf
           - vivaldi
           - unzip
-          - lxappernce
+          - lxappearance
       when: ansible_facts['os_family'] == "Archlinux"
     - name: Install openbox dependences on Debian
       apt:
@@ -33,7 +33,7 @@
           - obconf
           - unzip
           - openbox-menu
-          - lxappernce
+          - lxappearance
         update-cache: yes
       when: ansible_facts['os_family'] == "Debian"
     - name: Install Vivalid browser on Debian
