@@ -2,10 +2,12 @@
   pacman:
     name: redshift
   when: ansible_facts['os_family'] == "ArchLinux"
+  become: true
 - name: Install redshift on Debian
   apt:
     name: redshift
   when: ansible_facts['os_family'] == "Debian"
+  become: true
 - name: Check if redshift config exist
   stat:
     path: "{{ global.config_dir }}/.config/redshift.conf"

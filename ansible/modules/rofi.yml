@@ -2,10 +2,12 @@
   pacman:
     name: rofi
   when: ansible_facts['os_family'] == "Archlinux"
+  become: true
 - name: Install rofi on Debian
   apt:
     name: rofi
   when: ansible_facts['os_family'] == "Debian"
+  become: true
 - name: Check if rofi configuration directory is exist
   stat:
     path: "{{ global.home }}/.config/rofi"

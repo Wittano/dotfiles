@@ -9,7 +9,7 @@
 - name: Install dracula-openbox theme
   git:
     repo: https://github.com/dracula/openbox.git
-    dest: "{{ global.home }}/.themes/dracula-openbox"
+    dest: /tmp/dracula-openbox
     clone: yes
 - name: Install dracula-gtk theme
   git:
@@ -26,4 +26,9 @@
     dest: "{{ global.home }}/.icons"
     src: https://github.com/dracula/gtk/files/5214870/Dracula.zip
     remote_src: yes
+    owner: wittano
+- name: Move dracula openbox theme to .themes directory
+  copy: 
+    src: /tmp/dracula-openbox/Dracula-withoutBorder
+    dest: "{{ global.home }}/.themes/dracula-openbox"
     owner: wittano

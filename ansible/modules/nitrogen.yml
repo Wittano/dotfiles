@@ -2,10 +2,12 @@
   pacman: 
     name: nitrogen
   when: ansible_facts['os_family'] == 'ArchLinux'
+  become: true
 - name: Install nitrogen on Debian
   apt: 
     name: nitrogen
   when: ansible_facts['os_family'] == 'Debian'
+  become: true
 - name: Get current nitrogen config directory
   stat:
     path: "{{ global.home }}/.config/nitrogen"

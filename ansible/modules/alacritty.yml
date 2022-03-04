@@ -2,10 +2,12 @@
   pacman:
     name: alacritty
   when: ansible_facts['os_family'] == 'ArchLinux'
+  become: true
 - name: Install alacritty on Debian
   apt:
     name: alacritty
   when: ansible_facts['os_family'] == 'Debian'
+  become: true
 - name: Check if alacritty configuration directory exist
   stat:
     path: "{{ global.home }}/.config/alacritty"
