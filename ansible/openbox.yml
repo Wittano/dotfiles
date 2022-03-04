@@ -13,7 +13,6 @@
       pacman:
         name:
           - openbox
-          - nitrogen
           - notify-osd
           - flameshot
           - rofi
@@ -31,3 +30,5 @@
       import_tasks: modules/tint2.yml
     - name: Import redshift tasks
       import_tasks: modules/redshift.yml
+    - name: Import nitrogen tasks
+      import_tasks: modules/nitrogen.yml
