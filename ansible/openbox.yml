@@ -19,6 +19,8 @@
           - nautilus
           - obconf
           - vivaldi
+          - unzip
+          - lxappernce
       when: ansible_facts['os_family'] == "Archlinux"
     - name: Install openbox dependences on Debian
       apt:
@@ -29,8 +31,24 @@
           - xautolock
           - nautilus
           - obconf
-          - vivaldi
+          - unzip
+          - openbox-menu
+          - lxappernce
+        update-cache: yes
       when: ansible_facts['os_family'] == "Debian"
+    - name: Install Vivalid browser on Debian
+      apt:
+        deb: https://downloads.vivaldi.com/stable/vivaldi-stable_5.1.2567.57-1_amd64.deb
+      when: ansible_facts['os_family'] == "Debian"
+    - name: Check if config directory is exist
+      stat:
+        path: "{{ global.home }}/.config"
+      register: config
+    - name: Create home config directory
+      file:
+        path: "{{ global.home }}/.config"
+        state: directory
+      when: not config.stat.exists
     - name: Check if openbox directory is exist
       stat:
         path: "{{ global.home }}/.config/openbox"
@@ -56,3 +74,4 @@
       import_tasks: modules/rofi.yml
     - name: Import alacritty tasks
       import_tasks: modules/alacritty.yml
+      when: ansible_facts['os_family'] != 'Debian'

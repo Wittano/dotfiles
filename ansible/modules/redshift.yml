@@ -10,7 +10,7 @@
   stat:
     path: "{{ global.config_dir }}/.config/redshift.conf"
   register: tint2
-- name:
+- name: Link redshift config
   file:
     src: "{{ global.config_dir }}/.config/redshift.conf"
     dest: "{{ global.home }}/.config/redshift.conf"
