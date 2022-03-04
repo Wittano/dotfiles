@@ -22,6 +22,17 @@
           - vivaldi
           - alacritty
       when: ansible_facts['os_family'] == "Archlinux"
+    - name: Check if openbox directory is exist
+      stat:
+        path: "{{ global.home }}/.config/openbox"
+      register: openbox
+    - name: Install openbox configuration
+      file:
+        src: "{{ global.config_dir }}/.config/openbox"
+        dest: "{{ global.home }}/.config/openbox"
+        state: link
+        owner: wittano
+      when: not openbox.stat.exists
     # TODO: Added openbox-menu installation from AUR. https://github.com/kewlfft/ansible-aur
     - name: Import dracula theme
       import_tasks: theme/dracula.yml
