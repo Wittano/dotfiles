@@ -25,9 +25,9 @@
       when: ansible_facts['os_family'] == "Archlinux"
     # TODO: Added openbox-menu installation from AUR. https://github.com/kewlfft/ansible-aur
     - name: Import dracula theme
-      import_tasks: dracula.yml
+      import_tasks: theme/dracula.yml
       when: dracula_theme
     - name: Import tint2 tasks
-      import_tasks: tint2.yml
+      import_tasks: modules/tint2.yml
     - name: Import redshift tasks
-      import_tasks: redshift.yml
+      import_tasks: modules/redshift.yml
