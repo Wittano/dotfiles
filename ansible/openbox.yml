@@ -15,7 +15,6 @@
           - openbox
           - notify-osd
           - flameshot
-          - rofi
           - xautolock
           - nautilus
           - obconf
@@ -43,3 +42,5 @@
       import_tasks: modules/redshift.yml
     - name: Import nitrogen tasks
       import_tasks: modules/nitrogen.yml
+    - name: Import rofi tasks
+      import_tasks: modules/rofi.yml
