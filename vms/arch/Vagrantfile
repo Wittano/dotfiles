@@ -1,0 +1,16 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "archlinux/archlinux"
+
+  config.vm.hostname = "wittano-arch"
+
+  config.vm.provider :libvirt do |libvirt|
+    libvirt.cpus = 2
+    libvirt.keymap = "pl"
+    libvirt.memory = 2048
+    libvirt.storage :file, :size => '10G'
+  end
+
+end
