@@ -28,16 +28,25 @@
     scrollbar_position = hidden
     palette = "#2e3436:#ef5350:#80cbc4:#ffeb95:#82aaff:#c792ea:#addb67:#d3d7cf:#555753:#ef5350:#80cbc4:#ffeb95:#82aaff:#c792ea:#addb67:#eeeeec"
     use_system_font = False
+  [[Dracula]]
+    background_color = "#1e1f29"
+    cursor_color = "#aaaaaa"
+    font = Monospace 14
+    foreground_color = "#f8f8f2"
+    show_titlebar = False
+    scrollbar_position = hidden
+    palette = "#44475a:#ff5555:#50fa7b:#f1fa8c:#8be9fd:#bd93f9:#ff79c6:#94a3a5:#000000:#ff5555:#50fa7b:#f1fa8c:#8be9fd:#bd93f9:#ff79c6:#ffffff"
+    use_system_font = False
 [layouts]
   [[default]]
     [[[child0]]]
       type = Window
       parent = ""
       order = 0
-      position = 12:44
+      position = 497:307
       maximised = False
       fullscreen = False
-      size = 976, 1020
+      size = 976, 507
       title = wittano@wittano-pc:~
       last_active_term = 68775d66-d664-4291-994a-0d03707672cd
       last_active_window = False
@@ -45,6 +54,23 @@
       type = Terminal
       parent = child0
       order = 0
-      profile = Night Owl
+      profile = Dracula
+      uuid = 68775d66-d664-4291-994a-0d03707672cd
+    [[[child2]]]
+      type = Window
+      parent = ""
+      order = 0
+      position = 12:25
+      maximised = False
+      fullscreen = False
+      size = 976, 1019
+      title = wittano@wittano-pc:~
+      last_active_term = 68775d66-d664-4291-994a-0d03707672cd
+      last_active_window = True
+    [[[terminal3]]]
+      type = Terminal
+      parent = child2
+      order = 0
+      profile = Dracula
       uuid = 68775d66-d664-4291-994a-0d03707672cd
 [plugins]
