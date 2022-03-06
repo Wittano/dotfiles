@@ -9,8 +9,6 @@ SCRIPT
 Vagrant.configure("2") do |config|
   config.vm.box = "debian/bullseye64"
 
-  config.vm.hostname = "wittano.debian.local"
-
   config.vm.provision "shell", inline: $script
 
   config.vm.provider :libvirt do |libvirt|
