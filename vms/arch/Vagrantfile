@@ -1,10 +1,17 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+$script = <<-'SCRIPT'
+  echo "Install basic utils"
+  sudo pacman -S --noconfirm git
+SCRIPT
+
 Vagrant.configure("2") do |config|
   config.vm.box = "archlinux/archlinux"
 
-  config.vm.hostname = "wittano-arch"
+  config.vm.synced_folder ".", "/vagrant", disabled: true
+
+  config.vm.provision "shell", inline: $script
 
   config.vm.provider :libvirt do |libvirt|
     libvirt.cpus = 2
