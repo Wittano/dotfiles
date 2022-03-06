@@ -3,13 +3,15 @@
 
 $script = <<-'SCRIPT'
   echo "Install basic utils"
-  sudo pacman -S --noconfirm git
+  sudo pacman -Syu --noconfirm git ansible vim
 SCRIPT
 
 Vagrant.configure("2") do |config|
   config.vm.box = "archlinux/archlinux"
 
   config.vm.synced_folder ".", "/vagrant", disabled: true
+
+  # config.vm.network "public_network", ip: "192.168.122.101"
 
   config.vm.provision "shell", inline: $script
 
