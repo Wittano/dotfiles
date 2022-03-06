@@ -17,5 +17,5 @@
     src: "{{ global.config_dir }}/.config/alacritty"
     dest: "{{ global.home }}/.config/alacritty"
     state: link
-    owner: wittano
+    owner: "{{ global.user }}"
   when: not alacritty.stat.exists

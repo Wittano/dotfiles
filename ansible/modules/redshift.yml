@@ -16,6 +16,6 @@
   file:
     src: "{{ global.config_dir }}/.config/redshift.conf"
     dest: "{{ global.home }}/.config/redshift.conf"
-    owner: wittano
+    owner: "{{ global.user }}"
     state: link
   when: not tint2.stat.exists

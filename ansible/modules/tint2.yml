@@ -16,6 +16,6 @@
   file:
     src: "{{ global.config_dir }}/.config/tint2"
     dest: "{{ global.home }}/.config/tint2"
-    owner: wittano
+    owner: "{{ global.user }}"
     state: link
   when: not tint2.stat.exists

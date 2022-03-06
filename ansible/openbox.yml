@@ -60,11 +60,11 @@
         src: "{{ global.config_dir }}/.config/openbox"
         dest: "{{ global.home }}/.config/openbox"
         state: link
-        owner: wittano
+        owner: "{{ global.user }}"
       when: not openbox.stat.exists
     # TODO: Added openbox-menu installation from AUR. https://github.com/kewlfft/ansible-aur
     - name: Import dracula theme
-      import_tasks: theme/dracula.yml
+      import_tasks: themes/dracula.yml
       when: dracula_theme
     - name: Import tint2 tasks
       import_tasks: modules/tint2.yml

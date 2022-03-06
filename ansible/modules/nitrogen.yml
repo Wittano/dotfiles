@@ -1,10 +1,10 @@
 - name: Install nitrogen on Arch Linux
-  pacman: 
+  pacman:
     name: nitrogen
   when: ansible_facts['os_family'] == 'ArchLinux'
   become: true
 - name: Install nitrogen on Debian
-  apt: 
+  apt:
     name: nitrogen
   when: ansible_facts['os_family'] == 'Debian'
   become: true
@@ -28,4 +28,3 @@
     dest: "{{ global.home }}/wallpaper"
     state: link
   when: not wallpapaer.stat.exists
-  

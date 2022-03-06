@@ -26,9 +26,9 @@
     dest: "{{ global.home }}/.icons"
     src: https://github.com/dracula/gtk/files/5214870/Dracula.zip
     remote_src: yes
-    owner: wittano
+    owner: "{{ global.user }}"
 - name: Copy dracula openbox theme to .themes directory
-  copy: 
+  copy:
     src: /tmp/dracula-openbox/Dracula-withoutBorder
     dest: "{{ global.home }}/.themes/"
-    owner: wittano
+    owner: "{{ global.user }}"

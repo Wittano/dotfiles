@@ -16,6 +16,6 @@
   file:
     src: "{{ global.config_dir }}/.config/rofi"
     dest: "{{ global.home }}/.config/rofi"
-    owner: wittano
+    owner: "{{ global.user }}"
     state: link
   when: not rofi.stat.exists
