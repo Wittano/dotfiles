@@ -82,3 +82,5 @@
       import_tasks: modules/rofi.yml
     - name: Import gtk config tasks
       import_tasks: modules/gtk.yml
+    - name: Import terminator config tasks
+      import_tasks: modules/terminator.yml

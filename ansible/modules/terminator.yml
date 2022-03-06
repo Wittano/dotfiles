@@ -1,0 +1,21 @@
+- name: Install terminator on Arch Linux
+  pacman:
+    name: terminator
+  when: ansible_facts['os_family'] == 'ArchLinux'
+  become: true
+- name: Install terminator on Debian
+  apt:
+    name: terminator
+  when: ansible_facts['os_family'] == 'Debian'
+  become: true
+- name: Check if alacritty configuration directory exist
+  stat:
+    path: "{{ global.home }}/.config/terminator"
+  register: terminator
+- name: Link terminator config
+  file:
+    src: "{{ global.config_dir }}/.config/terminator"
+    dest: "{{ global.home }}/.config/terminator"
+    state: link
+    owner: "{{ global.user }}"
+  when: not terminator.stat.exists
