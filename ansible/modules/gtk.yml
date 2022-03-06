@@ -23,11 +23,11 @@
     dest: "{{ global.home }}/.config/gtk-3.0"
     owner: "{{ global.user }}"
     state: link
-  when: not gtk2.stat.exists
+  when: not gtk3.stat.exists
 - name: Link gtk4 config
   file:
     src: "{{ global.config_dir }}/.config/gtk-4.0"
     dest: "{{ global.home }}/.config/gtk-4.0"
     owner: "{{ global.user }}"
     state: link
-  when: not gtk2.stat.exists
+  when: not gtk4.stat.exists
