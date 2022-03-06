@@ -37,10 +37,16 @@
         update-cache: yes
       when: ansible_facts['os_family'] == "Debian"
       become: true
+    - name: Check if Vivalid browser is installed
+      stat:
+        path: /usr/bin/vivaldi-stable
+      register: vivaldi
     - name: Install Vivalid browser on Debian
       apt:
         deb: https://downloads.vivaldi.com/stable/vivaldi-stable_5.1.2567.57-1_amd64.deb
-      when: ansible_facts['os_family'] == "Debian"
+      when: 
+        - ansible_facts['os_family'] == "Debian"
+        - not vivaldi.stat.exists
       become: true
     - name: Check if config directory is exist
       stat:
