@@ -77,3 +77,5 @@
     - name: Import alacritty tasks
       import_tasks: modules/alacritty.yml
       when: ansible_facts['os_family'] != 'Debian'
+    - name: Import gtk config tasks
+      import_tasks: modules/gtk.yml
