@@ -1,0 +1,13 @@
+---
+- hosts: all
+  become: true
+  become_method: sudo
+
+  tasks:
+    - name: Install essentially packages
+      apt:
+        name:
+          - git
+          - ansible
+          - vim
+        update_cache: yes
