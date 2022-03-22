@@ -6,18 +6,19 @@ Vagrant.require_version ">= 1.8.0"
 Vagrant.configure("2") do |config|
   config.vm.box = "debian/bullseye64"
 
-  config.vm.synced_folder ".", "/vagrant", disabled: true
+  config.vm.synced_folder "data", "/vagrant"
 
   config.vm.provision "ansible" do |ansible|
     ansible.verbose = "v"
     ansible.playbook = "playbook.yml"
   end
 
-  config.vm.provider :libvirt do |libvirt|
-    libvirt.cpus = 2
-    libvirt.keymap = "pl"
-    libvirt.memory = 2048
-    libvirt.storage :file, :size => '10G'
+  config.disksize.size = '40GB'
+
+  config.vm.provider "virtualbox" do |v|
+    v.gui = false
+    v.cpus = 2
+    v.memory = 2048
   end
   
 end
