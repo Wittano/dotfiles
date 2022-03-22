@@ -4,5 +4,4 @@
 .config/JetBrains/CLion2021.3
 
 vms/**/.vagrant
-vms/**/data/nix-dotfiles
-vms/**/data/result
+vms/**/data/**
