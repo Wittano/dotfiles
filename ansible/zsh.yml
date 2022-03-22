@@ -23,7 +23,7 @@
     - name: Install 'oh-my-zsh'
       shell:
         cmd: "/usr/bin/curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh | bash"
-        creates: "{{ global.home }}/oh-my-zsh"
+        creates: "{{ global.home }}/.oh-my-zsh"
     - name: Check .zshrc is deployed
       stat:
         path: "{{ global.home }}/.zshrc"
@@ -34,7 +34,6 @@
         dest: "{{ global.home }}/.zshrc"
         owner: "{{ global.user }}"
         state: link
-      when: not zsh_config.stat.exists
     - name: Change user shell to zsh
       become: yes
       user:
