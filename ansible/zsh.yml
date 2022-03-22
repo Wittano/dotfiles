@@ -34,6 +34,7 @@
         dest: "{{ global.home }}/.zshrc"
         owner: "{{ global.user }}"
         state: link
+      when: not zsh_config.stat.exists
     - name: Change user shell to zsh
       become: yes
       user:
