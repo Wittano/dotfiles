@@ -7,6 +7,7 @@ Games/***
 *pnpm*
 .gradle
 .java
+.jdks
 .npm
 .vagrant.d
 .nuget
