@@ -9,6 +9,7 @@ BACKUP_DIR=/mnt/backup
 
 if [ ! -d $BACKUP_DIR ]; then
     sudo mkdir -p $BACKUP_DIR
+    sudo chown $(whoami) $BACKUP_DIR
 fi
 
 CURRENT_DIR=$(dirname $0)
