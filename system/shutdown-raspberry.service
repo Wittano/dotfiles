@@ -1,0 +1,14 @@
+[Unit]
+Description=Shutdown Raspberry Pi
+DefaultDependencies=no
+Conflicts=reboot.target halt.target
+Before=shutdown.target
+Requires=network.target
+
+[Service]
+Type=oneshot
+User=wittano
+ExecStart=bash $HOME/projects/dotfiles/system/poweroff-raspberry.sh
+
+[Install]
+WantedBy=shutdown.target
