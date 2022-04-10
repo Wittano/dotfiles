@@ -49,28 +49,41 @@
       size = 976, 507
       title = wittano@wittano-pc:~
       last_active_term = 68775d66-d664-4291-994a-0d03707672cd
-      last_active_window = False
+      last_active_window = True
     [[[terminal1]]]
       type = Terminal
       parent = child0
       order = 0
       profile = Dracula
       uuid = 68775d66-d664-4291-994a-0d03707672cd
-    [[[child2]]]
+  [[New Layout]]
+    [[[child0]]]
       type = Window
       parent = ""
       order = 0
-      position = 12:25
-      maximised = False
+      position = 0:25
+      maximised = True
       fullscreen = False
-      size = 976, 1019
+      size = 1920, 1019
       title = wittano@wittano-pc:~
-      last_active_term = 68775d66-d664-4291-994a-0d03707672cd
+      last_active_term = 5395452f-8852-4e40-8f59-3b2d1e287d6f
       last_active_window = True
-    [[[terminal3]]]
+    [[[child1]]]
+      type = VPaned
+      parent = child0
+      order = 0
+      position = 507
+      ratio = 0.5
+    [[[terminal2]]]
       type = Terminal
-      parent = child2
+      parent = child1
       order = 0
       profile = Dracula
       uuid = 68775d66-d664-4291-994a-0d03707672cd
+    [[[terminal3]]]
+      type = Terminal
+      parent = child1
+      order = 1
+      profile = Dracula
+      uuid = 5395452f-8852-4e40-8f59-3b2d1e287d6f
 [plugins]
