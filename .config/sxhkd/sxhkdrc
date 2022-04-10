@@ -40,7 +40,7 @@ super + q
 	i3lock-fancy
 
 super + shift + q
-	bash $HOME/projects/scripts/close-menu.sh
+	bash $HOME/.config/bspwm/scripts/close-menu.sh
 
 super + shift + p
 	flameshot gui
