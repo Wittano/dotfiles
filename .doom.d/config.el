@@ -81,3 +81,6 @@
 
 ;; Org mode
 (add-hook! 'org-mode 'org-superstar-mode)
+
+;; Wakatime mode
+(global-wakatime-mode 1)

@@ -54,5 +54,6 @@
 (package! zeno-theme)
 (package! auto-package-update)
 (package! org-superstar)
+(package! wakatime-mode)
 (straight-use-package '(nano-theme :type git :host github
                                    :repo "rougier/nano-theme"))
