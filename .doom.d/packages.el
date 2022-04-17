@@ -49,11 +49,7 @@
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
 
-(package! elfeed-org)
 (package! transient)
 (package! zeno-theme)
 (package! auto-package-update)
-(package! org-superstar)
 (package! wakatime-mode)
-(straight-use-package '(nano-theme :type git :host github
-                                   :repo "rougier/nano-theme"))

@@ -61,26 +61,8 @@
 (setq auto-package-update-interval 14)
 (setq auto-package-update-prompt-before-update t)
 
-;; Elfeed
-(add-hook! 'elfeed-search-mode-hook 'elfeed-update '(lambda () (setq elfeed-search-filter "@1-week-ago +unread")))
-(add-hook! 'elfeed-new-entry-hook
-  (elfeed-make-tagger :before "2 weeks ago"
-                      :remove 'unread))
-
 ;; Python
 (setenv "WORKON_HOME" "~/.local/share/virtualenvs")
-
-
-;; Latex
-(defun latex-mode-config () (
-                          (latex-preview-pane-mode 1)
-                          (latex-preview-pane-enable)))
-
-(add-hook! 'latex-mode 'latex-mode-config)
-(add-hook! 'LaTeX-mode 'latex-mode-config)
-
-;; Org mode
-(add-hook! 'org-mode 'org-superstar-mode)
 
 ;; Wakatime mode
 (global-wakatime-mode 1)
