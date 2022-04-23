@@ -351,7 +351,7 @@
     <!-- Launch terminal -->
     <keybind key="W-Return">
       <action name="Execute">
-        <command>alacritty</command>
+        <command>terminator</command>
       </action>
     </keybind>
     <!-- Launch nautilus-->
