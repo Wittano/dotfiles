@@ -764,5 +764,11 @@
     <application class="Lutris">
       <desktop>5</desktop>
     </application>
+    <application class="emacs">
+      <desktop>1</desktop>
+    </application>
+    <application class="spotify">
+      <desktop>4</desktop>
+    </application>
   </applications>
 </openbox_config>
