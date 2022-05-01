@@ -1,38 +1,25 @@
-# Copyright (c) 2010 Aldo Cortesi
-# Copyright (c) 2010, 2014 dequis
-# Copyright (c) 2012 Randall Ma
-# Copyright (c) 2012-2014 Tycho Andersen
-# Copyright (c) 2012 Craig Barnes
-# Copyright (c) 2013 horsik
-# Copyright (c) 2013 Tao Sauvage
-#
-# Permission is hereby granted, free of charge, to any person obtaining a copy
-# of this software and associated documentation files (the "Software"), to deal
-# in the Software without restriction, including without limitation the rights
-# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-# copies of the Software, and to permit persons to whom the Software is
-# furnished to do so, subject to the following conditions:
-#
-# The above copyright notice and this permission notice shall be included in
-# all copies or substantial portions of the Software.
-#
-# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-# SOFTWARE.
-
-from typing import List  # noqa: F401
+from typing import List
 
 from libqtile import bar, layout, widget
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 
+from themes import MyTheme, DraculaTheme
+
+import platform
+
 mod = "mod4"
 terminal = guess_terminal()
+
+theme = MyTheme()
+
+layout_theme = {
+    "border_width": 2,
+    "margin": 8,
+    "border_focus": theme.border_focus,
+    "border_normal": theme.border_normal
+}
 
 keys = [
     # A list of available commands that can be bound to keys can be found
@@ -77,25 +64,46 @@ keys = [
 
     # Toggle between different layouts as defined below
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
-    Key([mod], "w", lazy.window.kill(), desc="Kill focused window"),
+    Key([mod], "x", lazy.window.kill(), desc="Kill focused window"),
 
-    Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
-    Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
+    Key([mod, "mod1"], "r", lazy.reload_config(), desc="Reload the config"),
+    Key([mod, "mod1"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod], "r", lazy.spawncmd(),
         desc="Spawn a command using a prompt widget"),
+
+    Key([mod], "f", lazy.window.toggle_fullscreen(),
+        desc="Put the focused window to/from fullscreen mode"),
+
+    Key([mod], "t", lazy.window.toggle_floating(),
+        desc="Put the focused window to/from floating mode"),
+
+    Key([mod, "shift"], "p", lazy.spawn("flameshot gui"),
+        desc="Put the focused window to/from floating mode"),
+
+    Key([mod], "d", lazy.spawn("rofi -show drun"),
+        desc="Put the focused window to/from floating mode")
 ]
 
-groups = [Group(i) for i in "123456789"]
+groups: List[Group] = [
+    Group(name="1", label="dev"),
+    Group(name="2", label="www"),
+    Group(name="3", label="sys"),
+    Group(name="4", label="doc"),
+    Group(name="5", label="virt"),
+    Group(name="6", label="game", layout="max"),
+    Group(name="7", label="chat", layout="max"),
+    Group(name="8", label="www"),
+]
 
-for i in groups:
-    keys.extnd([
+for group in groups:
+    keys.extend([
         # mod1 + letter of group = switch to group
-        Key([mod], i.name, lazy.group[i.name].toscreen(),
-            desc="Switch to group {}".format(i.name)),
+        Key([mod], group.name, lazy.group[group.name].toscreen(),
+            desc=f"Switch to group {group.name}"),
 
         # mod1 + shift + letter of group = switch to & move focused window to group
-        Key([mod, "shift"], i.name, lazy.window.togroup(i.name, switch_group=True),
-            desc="Switch to & move focused window to group {}".format(i.name)),
+        Key([mod, "shift"], group.name, lazy.window.togroup(group.name, switch_group=True),
+            desc=f"Switch to & move focused window to group {group.name}"),
         # Or, use below if you prefer not to switch to that group.
         # # mod1 + shift + letter of group = move focused window to group
         # Key([mod, "shift"], i.name, lazy.window.togroup(i.name),
@@ -103,49 +111,132 @@ for i in groups:
     ])
 
 layouts = [
-    layout.Columns(border_focus_stack=['#d75f5f', '#8f3d3d'], border_width=4),
-    layout.Max(),
-    # Try more layouts by unleashing below layouts.
+    # layout.Columns(
+    #     border_on_single=True,
+    #     border_normal_stack=themes[active_theme]["border_normal"],
+    #     border_focus_stack=themes[active_theme]["border_focus"],
+    #     **layout_theme
+    # ),
+    layout.Max(**layout_theme),
     # layout.Stack(num_stacks=2),
     # layout.Bsp(),
     # layout.Matrix(),
-    # layout.MonadTall(),
-    # layout.MonadWide(),
+    layout.MonadTall(
+        change_ratio=0.2,
+        **layout_theme
+    ),
+    layout.MonadWide(**layout_theme),
     # layout.RatioTile(),
     # layout.Tile(),
-    # layout.TreeTab(),
+    layout.TreeTab(
+        panel_width=200,
+        margin_y=10,
+        active_bg=theme.active_border,
+        inactive_bg=theme.border_normal,
+        **layout_theme
+    ),
     # layout.VerticalTile(),
     # layout.Zoomy(),
 ]
 
 widget_defaults = dict(
     font='sans',
-    fontsize=12,
+    fontsize=14,
     padding=3,
 )
+
 extension_defaults = widget_defaults.copy()
+
+widget_config = dict(
+    font='sans',
+    fontsize=14,
+)
+
+textbox_config = dict(
+    background=theme.bar.background,
+    foreground=theme.bar.foreground,
+    padding=2
+)
+
+separator = widget.TextBox(
+    text='|',
+    **textbox_config
+)
+
+widgets = [
+    widget.TextBox(
+        text='',
+        fontsize=24,
+        background=theme.bar.background,
+        foreground=theme.bar.foreground,
+        padding=2,
+        mouse_callbacks={
+            "Button1": lazy.spawn(terminal)
+        }
+    ),
+    widget.CurrentLayout(
+        padding=5,
+        **widget_config
+    ),
+    separator,
+    widget.GroupBox(
+        highlight_method='line',
+        borderwidth=3,
+        this_current_screen_border=theme.bar.focused_workspace.text,
+        block_highlight_text_color=theme.bar.focused_workspace.text,
+        active=theme.bar.active_workspace.text,
+        foreground=theme.bar.inactive_workspace.text,
+        inactive=theme.bar.inactive_workspace.text,
+        urgent_text=theme.bar.urgent_workspace.text,
+        urgent_border=theme.bar.urgent_workspace.background,
+        urgent_alert_method='block',
+        invert_mouse_wheel=True,
+        **widget_config
+    ),
+    separator,
+    widget.WindowName(
+        foreground=theme.window_name,
+        max_chars=30,
+        **widget_config
+    ),
+    widget.TextBox(
+        text=f"{platform.system()} {platform.release()}",
+        **textbox_config
+    ),
+    separator,
+    widget.DF(
+        warn_space=5,
+        **textbox_config
+    ),
+    separator,
+    widget.Volume(
+        fmt='Vol: {}',
+        **textbox_config
+    ),
+    separator,
+    widget.CPU(
+        **textbox_config
+    ),
+    separator,
+    widget.Net(
+        interface="eno1",
+        **textbox_config
+    ),
+    separator,
+    widget.Systray(),
+    widget.Clock(
+        format='%Y-%m-%d %a %I:%M %p',
+        **textbox_config
+    ),
+]
 
 screens = [
     Screen(
-        bottom=bar.Bar(
-            [
-                widget.CurrentLayout(),
-                widget.GroupBox(),
-                widget.Prompt(),
-                widget.WindowName(),
-                widget.Chord(
-                    chords_colors={
-                        'launch': ("#ff0000", "#ffffff"),
-                    },
-                    name_transform=lambda name: name.upper(),
-                ),
-                widget.TextBox("default config", name="default"),
-                widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
-                widget.Systray(),
-                widget.Clock(format='%Y-%m-%d %a %I:%M %p'),
-                widget.QuickExit(),
-            ],
-            24,
+        top=bar.Bar(
+            widgets,
+            32,
+            background=theme.bar.background,
+            border_color=theme.bar.background
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
             # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
         ),
@@ -158,7 +249,6 @@ mouse = [
          start=lazy.window.get_position()),
     Drag([mod], "Button3", lazy.window.set_size_floating(),
          start=lazy.window.get_size()),
-    Click([mod], "Button2", lazy.window.bring_to_front())
 ]
 
 dgroups_key_binder = None
@@ -176,13 +266,14 @@ floating_layout = layout.Floating(float_rules=[
     Match(title='branchdialog'),  # gitk
     Match(title='pinentry'),  # GPG key password entry
 ])
+
 auto_fullscreen = True
 focus_on_window_activation = "smart"
 reconfigure_screens = True
 
 # If things like steam games want to auto-minimize themselves when losing
 # focus, should we respect this or not?
-auto_minimize = True
+auto_minimize = False
 
 # XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
 # string besides java UI toolkits; you can see several discussions on the
@@ -192,4 +283,4 @@ auto_minimize = True
 #
 # We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
 # java that happens to be on java's whitelist.
-wmname = "LG3D"e
+wmname = "LG3D"
