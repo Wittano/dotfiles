@@ -1,13 +1,14 @@
+import platform
 from typing import List
 
 from libqtile import bar, layout, widget
-from libqtile.config import Click, Drag, Group, Key, Match, Screen
+from libqtile.config import Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 
-from themes import MyTheme, DraculaTheme
-
-import platform
+from monitors import get_num_monitors
+from themes import MyTheme
+from widgets import create_powerline_sep
 
 mod = "mod4"
 terminal = guess_terminal()
@@ -21,7 +22,7 @@ layout_theme = {
     "border_normal": theme.border_normal
 }
 
-keys = [
+keys: List[Key] = [
     # A list of available commands that can be bound to keys can be found
     # at https://docs.qtile.org/en/latest/manual/config/lazy.html
 
@@ -78,16 +79,25 @@ keys = [
         desc="Put the focused window to/from floating mode"),
 
     Key([mod, "shift"], "p", lazy.spawn("flameshot gui"),
-        desc="Put the focused window to/from floating mode"),
+        desc="Make screenshot"),
 
     Key([mod], "d", lazy.spawn("rofi -show drun"),
-        desc="Put the focused window to/from floating mode")
+        desc="Run rofi in dmenu mode"),
+
+    Key([mod], "m", lazy.spawn("amixer sset Master toggle"),
+        desc="Toggle mute/unmute volume"),
+
+    Key([mod], "p", lazy.spawn("amixer sset Master 1%"),
+        desc="Increases volume"),
+
+    Key([mod], "o", lazy.spawn("amixer sset Master 1%-"),
+        desc="Decreases volume")
 ]
 
 groups: List[Group] = [
     Group(name="1", label="dev"),
     Group(name="2", label="www"),
-    Group(name="3", label="sys"),
+    Group(name="3", label="sys", layout="MonadTall"),
     Group(name="4", label="doc"),
     Group(name="5", label="virt"),
     Group(name="6", label="game", layout="max"),
@@ -153,15 +163,18 @@ widget_config = dict(
 )
 
 textbox_config = dict(
-    background=theme.bar.background,
-    foreground=theme.bar.foreground,
-    padding=2
+    fontsize=14,
+    padding=10
 )
 
 separator = widget.TextBox(
     text='|',
-    **textbox_config
+    background=theme.bar.background,
+    foreground=theme.bar.foreground,
 )
+
+first_powerline_sep = create_powerline_sep(theme.bar.first_widget)
+second_powerline_sep = create_powerline_sep(theme.bar.second_widget)
 
 widgets = [
     widget.TextBox(
@@ -176,7 +189,6 @@ widgets = [
     ),
     widget.CurrentLayout(
         padding=5,
-        **widget_config
     ),
     separator,
     widget.GroupBox(
@@ -191,43 +203,60 @@ widgets = [
         urgent_border=theme.bar.urgent_workspace.background,
         urgent_alert_method='block',
         invert_mouse_wheel=True,
-        **widget_config
     ),
     separator,
     widget.WindowName(
         foreground=theme.window_name,
         max_chars=30,
-        **widget_config
     ),
+    *first_powerline_sep,
     widget.TextBox(
         text=f"{platform.system()} {platform.release()}",
+        background=theme.bar.first_widget.background,
+        foreground=theme.bar.first_widget.text,
         **textbox_config
     ),
-    separator,
-    widget.DF(
-        warn_space=5,
-        **textbox_config
-    ),
-    separator,
+    *second_powerline_sep,
     widget.Volume(
         fmt='Vol: {}',
+        background=theme.bar.second_widget.background,
+        foreground=theme.bar.second_widget.text,
         **textbox_config
     ),
-    separator,
     widget.CPU(
+        background=theme.bar.first_widget.background,
+        foreground=theme.bar.first_widget.text,
         **textbox_config
     ),
-    separator,
     widget.Net(
         interface="eno1",
+        background=theme.bar.second_widget.background,
+        foreground=theme.bar.second_widget.text,
         **textbox_config
     ),
-    separator,
-    widget.Systray(),
+    widget.CheckUpdates(
+        update_interval=1800,
+        distro="Arch_checkupdates",
+        colour_have_updates=theme.bar.first_widget.text,
+        colour_no_updates=theme.bar.first_widget.text,
+        mouse_callbacks={
+            'Button1': lambda: lazy.spawn(f'{terminal} -e sudo pacman -Syu')
+        },
+        background=theme.bar.first_widget.background,
+        foreground=theme.bar.first_widget.text,
+        **textbox_config
+    ),
     widget.Clock(
         format='%Y-%m-%d %a %I:%M %p',
+        background=theme.bar.second_widget.background,
+        foreground=theme.bar.second_widget.text,
         **textbox_config
     ),
+    widget.Systray(
+        background=theme.bar.first_widget.background,
+        foreground=theme.bar.first_widget.text,
+        **textbox_config
+    )
 ]
 
 screens = [
@@ -240,7 +269,8 @@ screens = [
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
             # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
         ),
-    ),
+    )
+    # ) for i in range(get_num_monitors())
 ]
 
 # Drag floating layouts.

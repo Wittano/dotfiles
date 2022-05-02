@@ -17,7 +17,11 @@ class Bar:
                  focused_workspace: Colors = Colors(),
                  active_workspace: Colors = Colors(),
                  inactive_workspace: Colors = Colors(),
-                 urgent_workspace: Colors = Colors()):
+                 urgent_workspace: Colors = Colors(),
+                 first_widget: Colors = Colors(),
+                 second_widget: Colors = Colors()):
+        self.second_widget = second_widget
+        self.first_widget = first_widget
         self.foreground = foreground
         self.background = background
         self.separator_color = separator_color
@@ -67,7 +71,9 @@ class MyTheme(Theme):
         focused_workspace=Colors(border="#212337", background="#212337", text="#86e1fc"),
         active_workspace=Colors(border="#212337", background="#212337", text="#b1e16a"),
         inactive_workspace=Colors(border="#282A36", background="#212337", text="#c8d3f5"),
-        urgent_workspace=Colors(border="#212337", background="#212337", text="#ff995e")
+        urgent_workspace=Colors(border="#212337", background="#212337", text="#ff995e"),
+        first_widget=Colors(border="#212337", background="#4da561", text="#F8F8F2"),
+        second_widget=Colors(border="#212337", background="#677CE4", text="#F8F8F2"),
     )
 
 
@@ -84,5 +90,7 @@ class DraculaTheme(Theme):
         focused_workspace=Colors(border="#6272A4", background="#6272A4", text="#F8F8F2"),
         active_workspace=Colors(border="#44475A", background="#44475A", text="#F8F8F2"),
         inactive_workspace=Colors(border="#282A36", background="#282A36", text="#BFBFBF"),
-        urgent_workspace=Colors(border="#44475A", background="#FF5555", text="#F8F8F2")
+        urgent_workspace=Colors(border="#44475A", background="#FF5555", text="#F8F8F2"),
+        first_widget=Colors(border="#44475A", background="#6272A4", text="#F8F8F2"),
+        second_widget=Colors(border="#44475A", background="#44475A", text="#F8F8F2")
     )
