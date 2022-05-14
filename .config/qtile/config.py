@@ -1,16 +1,18 @@
 import os
-import platform
+import subprocess
 from typing import List
 
-from libqtile import bar, layout, widget
-from libqtile.config import Drag, Group, Key, Match, Screen
+import libqtile.hook
+from libqtile import layout
+from libqtile.config import Drag, Group, Key, Match
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 
 from groups import get_default_groups
+from layouts import LayoutsCollection
 from monitors import get_monitors
 from themes import MyTheme
-from widgets import create_powerline_sep
+from widgets import ScreenCreator
 
 SUPER_KEY = "mod4"
 ALT_KEY = "mod1"
@@ -20,13 +22,6 @@ CONTROL_KEY = "control"
 terminal = guess_terminal()
 
 theme = MyTheme()
-
-layout_theme = {
-    "border_width": 2,
-    "margin": 8,
-    "border_focus": theme.border_focus,
-    "border_normal": theme.border_normal
-}
 
 keys: List[Key] = [
     # A list of available commands that can be bound to keys can be found
@@ -82,7 +77,7 @@ keys: List[Key] = [
     Key([SUPER_KEY], "f", lazy.window.toggle_fullscreen(),
         desc="Put the focused window to/from fullscreen mode"),
 
-    Key([SUPER_KEY], "t", lazy.window.toggle_floating(),
+    Key([SUPER_KEY], "s", lazy.window.toggle_floating(),
         desc="Put the focused window to/from floating mode"),
 
     Key([SUPER_KEY, SHIFT_KEY], "p", lazy.spawn("flameshot gui"),
@@ -90,6 +85,12 @@ keys: List[Key] = [
 
     Key([SUPER_KEY], "d", lazy.spawn("rofi -show drun"),
         desc="Run rofi in dmenu mode"),
+
+    Key([SUPER_KEY], "w", lazy.spawn("rofi -show window"),
+        desc="""
+                Run rofi in window mode - special mode, 
+                that show every opened applications on each workspaces
+            """),
 
     Key([SUPER_KEY], "m", lazy.spawn("amixer sset Master toggle"),
         desc="Toggle mute/unmute volume"),
@@ -103,24 +104,12 @@ keys: List[Key] = [
 
 groups: List[Group] = get_default_groups()
 
-# groups: List[Group] = [
-#     Group(name="1", label="dev", layout="treetab"),
-#     Group(name="2", label="www", layout="max"),
-#     Group(name="3", label="sys", layout="monadtall"),
-#     Group(name="4", label="doc"),
-#     Group(name="5", label="virt"),
-#     Group(name="6", label="game", layout="max"),
-#     Group(name="7", label="chat", layout="max"),
-#     Group(name="8", label="www"),
-# ]
-
 for group in groups:
     keys.extend([
         # mod1 + letter of group = switch to group
         Key([SUPER_KEY], group.name, lazy.group[group.name].toscreen(),
             desc=f"Switch to group {group.name}"),
 
-        # mod1 + shift + letter of group = switch to & move focused window to group
         Key([SUPER_KEY, SHIFT_KEY], group.name, lazy.window.togroup(group.name, switch_group=True),
             desc=f"Switch to & move focused window to group {group.name}"),
         # Or, use below if you prefer not to switch to that group.
@@ -129,33 +118,12 @@ for group in groups:
         #     desc="move focused window to group {}".format(i.name)),
     ])
 
+layout_collection = LayoutsCollection(theme)
+
 layouts = [
-    # layout.Columns(
-    #     border_on_single=True,
-    #     border_normal_stack=themes[active_theme]["border_normal"],
-    #     border_focus_stack=themes[active_theme]["border_focus"],
-    #     **layout_theme
-    # ),
-    layout.Max(**layout_theme),
-    # layout.Stack(num_stacks=2),
-    # layout.Bsp(),
-    # layout.Matrix(),
-    layout.MonadTall(
-        change_ratio=0.2,
-        **layout_theme
-    ),
-    layout.MonadWide(**layout_theme),
-    # layout.RatioTile(),
-    # layout.Tile(),
-    layout.TreeTab(
-        panel_width=200,
-        margin_y=10,
-        active_bg=theme.active_border,
-        inactive_bg=theme.border_normal,
-        **layout_theme
-    ),
-    # layout.VerticalTile(),
-    # layout.Zoomy(),
+    layout_collection.max_layout,
+    layout_collection.monad_tall_layout,
+    layout_collection.monad_wide_layout,
 ]
 
 widget_defaults = dict(
@@ -171,123 +139,11 @@ widget_config = dict(
     fontsize=14,
 )
 
-textbox_config = dict(
-    fontsize=14,
-    padding=10
-)
-
-separator = widget.TextBox(
-    text='|',
-    background=theme.bar.background,
-    foreground=theme.bar.foreground,
-)
-
-info_powerline_sep = create_powerline_sep(theme.bar)
-first_powerline_sep = create_powerline_sep(theme.bar.first_widget, theme.bar.second_widget)
-second_powerline_sep = create_powerline_sep(theme.bar.second_widget, theme.bar.first_widget)
-
-widgets = [
-    widget.TextBox(
-        text='',
-        fontsize=24,
-        background=theme.bar.background,
-        foreground=theme.bar.foreground,
-        padding=5,
-        mouse_callbacks={
-            "Button1": lazy.spawn(terminal)
-        }
-    ),
-    widget.CurrentLayout(
-        padding=5,
-    ),
-    separator,
-    widget.GroupBox(
-        highlight_method='line',
-        borderwidth=3,
-        this_current_screen_border=theme.bar.focused_workspace.text,
-        block_highlight_text_color=theme.bar.focused_workspace.text,
-        active=theme.bar.active_workspace.text,
-        foreground=theme.bar.inactive_workspace.text,
-        inactive=theme.bar.inactive_workspace.text,
-        urgent_text=theme.bar.urgent_workspace.text,
-        urgent_border=theme.bar.urgent_workspace.background,
-        urgent_alert_method='block',
-        invert_mouse_wheel=True,
-        disable_drag=True
-    ),
-    separator,
-    widget.WindowName(
-        foreground=theme.window_name,
-        max_chars=30,
-    ),
-    *info_powerline_sep,
-    widget.TextBox(
-        text=f"{platform.system()} {platform.release()}",
-        background=theme.bar.first_widget.background,
-        foreground=theme.bar.first_widget.text,
-        **textbox_config
-    ),
-    *second_powerline_sep,
-    widget.Volume(
-        fmt='Vol: {}',
-        background=theme.bar.second_widget.background,
-        foreground=theme.bar.second_widget.text,
-        **textbox_config
-    ),
-    *first_powerline_sep,
-    widget.CPU(
-        background=theme.bar.first_widget.background,
-        foreground=theme.bar.first_widget.text,
-        **textbox_config
-    ),
-    *second_powerline_sep,
-    widget.Net(
-        interface="eno1",
-        background=theme.bar.second_widget.background,
-        foreground=theme.bar.second_widget.text,
-        **textbox_config
-    ),
-    *first_powerline_sep,
-    widget.CheckUpdates(
-        update_interval=1800,
-        distro="Arch_checkupdates",
-        colour_have_updates=theme.bar.first_widget.text,
-        colour_no_updates=theme.bar.first_widget.text,
-        mouse_callbacks={
-            'Button1': lambda: lazy.spawn(f'{terminal} -e sudo pacman -Syu')
-        },
-        background=theme.bar.first_widget.background,
-        foreground=theme.bar.first_widget.text,
-        **textbox_config
-    ),
-    *second_powerline_sep,
-    widget.Clock(
-        format='%Y-%m-%d %a %I:%M %p',
-        background=theme.bar.second_widget.background,
-        foreground=theme.bar.second_widget.text,
-        **textbox_config
-    ),
-    widget.Systray(
-        background=theme.bar.background,
-        foreground=theme.bar.first_widget.text,
-        **textbox_config
-    )
-]
+screen_creator = ScreenCreator(theme, terminal)
 
 screens = [
-    Screen(
-        top=bar.Bar(
-            widgets,
-            32,
-            background=theme.bar.background,
-            border_color=theme.bar.background,
-            width=1920
-            # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
-            # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
-        ),
-        wallpaper=f"{os.environ['HOME']}/.config/qtile/scenery.png"
-    ),
-]
+              screen_creator.create()
+          ] + [screen_creator.create(is_primary=False)] if get_monitors() > 1 else []
 
 # Drag floating layouts.
 mouse = [
@@ -335,3 +191,9 @@ auto_minimize = False
 # We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
 # java that happens to be on java's whitelist.
 wmname = "LG3D"
+
+
+@libqtile.hook.subscribe.startup_once
+def autostart_hook():
+    home_dir = os.environ['HOME']
+    subprocess.run(f"bash {home_dir}/.config/qtile/autostart.sh >> {home_dir}/.local/share/qtile/autostart.log")

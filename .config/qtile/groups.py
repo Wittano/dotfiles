@@ -30,6 +30,7 @@ _games_staff: List[str] = [
     "lutris",
     "genshinimpact.exe",
     r"steam_app*",
+    "Steam",
     "Paradox Launcher",
     "Cities.x64",
     "mb_warband_linux",
@@ -67,7 +68,8 @@ _music_staff: List[str] = [
     "Qmmp",
     "player",
     r"*Shortwave$",
-    "Rhythmbox"
+    "Rhythmbox",
+    r"[sS]potify"
 ]
 
 matches: List[_WindowMatch] = [
@@ -76,7 +78,7 @@ matches: List[_WindowMatch] = [
     _WindowMatch(group="5", match_rule=Match(wm_class="Evince")),
     _WindowMatch(group="3", match_rule=Match(wm_class="Org.gnome.Nautilus")),
     _WindowMatch(group="3", match_rule=Match(wm_class="Postman")),
-    _WindowMatch(group="7", match_rule=Match(wm_class="Signal")),
+    _WindowMatch(group="7", match_rule=Match(wm_class=re.compile("[sS]ignal*"))),
 ]
 
 
@@ -88,6 +90,12 @@ def get_default_groups() -> List[Group]:
 
 
 def _get_wm_name(wm_name: str) -> str | re.Pattern:
+    """
+    Get Window name or Window name regex
+
+    :param wm_name:
+    :return:
+    """
     try:
         return re.compile(wm_name)
     except re.error:
@@ -100,6 +108,11 @@ def _map_wm_names(group: Group, wm_names_list: List[str]):
 
 
 def _get_windows_matches() -> List[_WindowMatch]:
+    """
+    Create list of _WindowMatch object. WindowMatch object include group id and Match,
+    that will be used to
+    :return:
+    """
     _group_matches: List[Tuple[Group, List[str]]] = [
         (dev_group, _dev_staff),
         (www_group, _web_browsers),
