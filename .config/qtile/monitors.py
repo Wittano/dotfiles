@@ -1,27 +1,22 @@
-from Xlib import display as xdisplay
+import subprocess
+
+import libqtile.log_utils
 
 
-def get_num_monitors():
-    num_monitors = 0
+def get_monitors() -> int:
+    """
+    Get number of active and connected monitors
+
+    :return:
+        Number of monitors
+    """
     try:
-        display = xdisplay.Display()
-        screen = display.screen()
-        resources = screen.root.xrandr_get_screen_resources()
+        monitors: list[str] = subprocess.check_output(
+            args='xrandr --query | grep " connected"',
+            shell=True
+        ).decode().split('\n')
 
-        for output in resources.outputs:
-            monitor = display.xrandr_get_output_info(
-                output, resources.config_timestamp
-            )
-            preferred = False
-            if hasattr(monitor, "preferred"):
-                preferred = monitor.preferred
-            elif hasattr(monitor, "num_preferred"):
-                preferred = monitor.num_preferred
-
-            if preferred:
-                num_monitors += 1
-    except Exception:
-        # always setup at least one monitor
+        return len(list(filter(lambda x: x.strip() != '', monitors)))
+    except Exception as error:
+        libqtile.log_utils.logger.warning(error)
         return 1
-    else:
-        return num_monitors
