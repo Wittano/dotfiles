@@ -22,29 +22,39 @@ class ScreenCreator:
         self.__theme = theme
         self.__terminal_name = terminal
         self.__info_powerline_sep = self.__create_powerline_sep(theme.bar)
+        self.__info_powerline_sep_alt = self.__create_powerline_sep(theme.bar, use_second_widget_color=True)
         self.__first_powerline_sep = self.__create_powerline_sep(theme.bar.first_widget, theme.bar.second_widget)
         self.__second_powerline_sep = self.__create_powerline_sep(theme.bar.second_widget, theme.bar.first_widget)
 
     @staticmethod
-    def __get_first_color_background(color: Colors | Bar) -> str:
+    def __get_first_color_background(color: Colors | Bar, use_second_widget_color: Optional[bool] = False) -> str:
         if isinstance(color, Colors):
             return color.background
+        elif use_second_widget_color:
+            return color.second_widget.background
         else:
             return color.first_widget.background
 
     def __create_powerline_sep(self,
                                first_color: Colors | Bar,
-                               second_color: Optional[Colors] = None) -> Tuple[TextBox, Sep]:
+                               second_color: Optional[Colors] = None,
+                               use_second_widget_color: Optional[bool] = False) -> Tuple[TextBox, Sep]:
+
         return (
             widget.TextBox(
                 text=u"\ue0b2",
                 font="Powerline",
-                foreground=self.__get_first_color_background(first_color),
+                foreground=self.__get_first_color_background(first_color,
+                                                             use_second_widget_color=use_second_widget_color),
                 background=second_color.background if second_color is not None else first_color.background,
                 fontsize=25,
                 padding=0
             ),
-            widget.Sep(padding=3, linewidth=0, background=self.__get_first_color_background(first_color)),
+            widget.Sep(
+                padding=3,
+                linewidth=0,
+                background=self.__get_first_color_background(first_color,
+                                                             use_second_widget_color=use_second_widget_color)),
         )
 
     def __get_navigation_bar_part(self) -> List[TextBox]:
@@ -83,15 +93,15 @@ class ScreenCreator:
         is_only_one_monitor: bool = is_primary and get_monitors() == 1
         is_minor_monitor: bool = not is_primary and get_monitors() > 1
 
-        rigth_part = [
-            *(self.__second_powerline_sep if is_primary else self.__info_powerline_sep),
+        right_part = [
+            *(self.__second_powerline_sep if is_primary else self.__info_powerline_sep_alt),
             ClockWidget(self.__theme),
         ]
 
         if is_only_one_monitor or is_minor_monitor:
-            rigth_part.append(SystrayWidget(self.__theme))
+            right_part.append(SystrayWidget(self.__theme))
 
-        return rigth_part
+        return right_part
 
     def create(self, is_primary: bool = True) -> Screen:
         if is_primary:
@@ -181,6 +191,7 @@ class CPUWidget(widget.CPU):
         super(CPUWidget, self).__init__(
             background=theme.bar.first_widget.background,
             foreground=theme.bar.first_widget.text,
+            format='CPU {load_percent}%',
             **_textbox_config
         )
 
