@@ -24,6 +24,8 @@ terminal = guess_terminal()
 
 theme = MyTheme()
 
+volume_percent_ratio = 5
+
 keys: List[Key] = [
     # A list of available commands that can be bound to keys can be found
     # at https://docs.qtile.org/en/latest/manual/config/lazy.html
@@ -96,11 +98,14 @@ keys: List[Key] = [
     Key([SUPER_KEY], "m", lazy.spawn("amixer sset Master toggle"),
         desc="Toggle mute/unmute volume"),
 
-    Key([SUPER_KEY], "p", lazy.spawn("amixer sset Master 1%"),
+    Key([SUPER_KEY], "p", lazy.spawn(f"amixer sset Master {volume_percent_ratio}%+"),
         desc="Increases volume"),
 
-    Key([SUPER_KEY], "o", lazy.spawn("amixer sset Master 1%-"),
-        desc="Decreases volume")
+    Key([SUPER_KEY], "o", lazy.spawn(f"amixer sset Master {volume_percent_ratio}%-"),
+        desc="Decreases volume"),
+
+    Key([SUPER_KEY], "space", lazy.next_screen(),
+        desc="Toggle focused screen")
 ]
 
 groups: List[Group] = get_default_groups()
@@ -117,6 +122,7 @@ for group in groups:
         # # mod1 + shift + letter of group = move focused window to group
         # Key([mod, "shift"], i.name, lazy.window.togroup(i.name),
         #     desc="move focused window to group {}".format(i.name)),
+        Key([SUPER_KEY, CONTROL_KEY], group.name, lazy.group[group.name].toscreen(1))
     ])
 
 layout_collection = LayoutsCollection(theme)
@@ -156,7 +162,7 @@ mouse = [
 
 dgroups_key_binder = None
 dgroups_app_rules: List = []
-follow_mouse_focus = True
+follow_mouse_focus = False
 bring_front_click = False
 cursor_warp = False
 
@@ -198,4 +204,4 @@ wmname = "LG3D"
 @libqtile.hook.subscribe.startup_once
 def autostart_hook():
     home_dir = os.environ['HOME']
-    subprocess.run(f"bash {home_dir}/.config/qtile/autostart.sh >> {home_dir}/.local/share/qtile/autostart.log")
+    subprocess.call([f"{home_dir}/.config/qtile/autostart.sh"])

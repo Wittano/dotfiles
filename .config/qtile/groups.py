@@ -69,10 +69,10 @@ _music_staff: List[str] = [
     "player",
     r"*Shortwave$",
     "Rhythmbox",
-    r"[sS]potify"
 ]
 
 matches: List[_WindowMatch] = [
+    _WindowMatch(group="4", match_rule=Match(net_wm_pid=1938)),
     _WindowMatch(group="7", match_rule=Match(wm_class="discord")),
     _WindowMatch(group="5", match_rule=Match(wm_class=re.compile(r"[tT]hunderbird"))),
     _WindowMatch(group="5", match_rule=Match(wm_class="Evince")),

@@ -66,7 +66,7 @@ class ScreenCreator:
         separator = SeparatorWidget(self.__theme)
 
         return [
-            LogoWidget(self.__theme, self.__terminal_name),
+            LogoWidget(self.__theme),
             CurrentLayoutWidget(),
             separator,
             GroupBoxWidget(self.__theme),
@@ -86,7 +86,7 @@ class ScreenCreator:
             *self.__second_powerline_sep,
             NetWidget(self.__theme),
             *self.__first_powerline_sep,
-            CheckUpdatesWidget(self.__theme, self.__terminal_name),
+            CheckUpdatesWidget(self.__theme),
         ]
 
     def __get_right_bar_part(self, is_primary: bool = True):
@@ -130,7 +130,7 @@ class SeparatorWidget(widget.TextBox):
 
 
 class LogoWidget(widget.TextBox):
-    def __init__(self, theme: Theme, terminal: str = "terminator"):
+    def __init__(self, theme: Theme):
         super(LogoWidget, self).__init__(
             text='',
             fontsize=24,
@@ -138,7 +138,7 @@ class LogoWidget(widget.TextBox):
             foreground=theme.bar.foreground,
             padding=5,
             mouse_callbacks={
-                "Button1": lazy.spawn(terminal)
+                "Button1": lazy.spawn("rofi -show drun")
             }
         )
 
@@ -207,15 +207,13 @@ class VolumeWidget(widget.Volume):
 
 
 class CheckUpdatesWidget(widget.CheckUpdates):
-    def __init__(self, theme: Theme, terminal: str = "terminator"):
+    def __init__(self, theme: Theme, terminal_launch_cmd: str = "terminator -e"):
         super(CheckUpdatesWidget, self).__init__(
             update_interval=1800,
             distro="Arch_checkupdates",
             colour_have_updates=theme.bar.first_widget.text,
             colour_no_updates=theme.bar.first_widget.text,
-            mouse_callbacks={
-                'Button1': lazy.spawn(f'{terminal} -e sudo pacman -Syu')
-            },
+            execute=f"{terminal_launch_cmd} 'sudo pacman -Syyu'",
             background=theme.bar.first_widget.background,
             foreground=theme.bar.first_widget.text,
             no_update_string="N/A",
