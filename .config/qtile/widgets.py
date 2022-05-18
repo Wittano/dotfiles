@@ -172,7 +172,7 @@ class GroupBoxWidget(widget.GroupBox):
             urgent_border=theme.bar.urgent_workspace.background,
             urgent_alert_method='block',
             invert_mouse_wheel=True,
-            disable_drag=True
+            disable_drag=True,
         )
 
 
@@ -214,10 +214,11 @@ class CheckUpdatesWidget(widget.CheckUpdates):
             colour_have_updates=theme.bar.first_widget.text,
             colour_no_updates=theme.bar.first_widget.text,
             mouse_callbacks={
-                'Button1': lambda: lazy.spawn(f'{terminal} -e sudo pacman -Syu')
+                'Button1': lazy.spawn(f'{terminal} -e sudo pacman -Syu')
             },
             background=theme.bar.first_widget.background,
             foreground=theme.bar.first_widget.text,
+            no_update_string="N/A",
             **_textbox_config
         )
 
