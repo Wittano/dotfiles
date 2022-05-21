@@ -52,7 +52,8 @@ _web_browsers: List[str] = [
 _dev_staff: List[str] = [
     "Emacs",
     "Code",
-    "jetbrains-*"
+    "jetbrains-*",
+    "code-oss"
 ]
 
 _terminals: List[str] = [
@@ -72,12 +73,11 @@ _music_staff: List[str] = [
 ]
 
 matches: List[_WindowMatch] = [
-    _WindowMatch(group="4", match_rule=Match(net_wm_pid=1938)),
     _WindowMatch(group="7", match_rule=Match(wm_class="discord")),
     _WindowMatch(group="5", match_rule=Match(wm_class=re.compile(r"[tT]hunderbird"))),
     _WindowMatch(group="5", match_rule=Match(wm_class="Evince")),
     _WindowMatch(group="3", match_rule=Match(wm_class="Org.gnome.Nautilus")),
-    _WindowMatch(group="3", match_rule=Match(wm_class="Postman")),
+    _WindowMatch(group="1", match_rule=Match(wm_class="Postman")),
     _WindowMatch(group="7", match_rule=Match(wm_class=re.compile("[sS]ignal*"))),
 ]
 

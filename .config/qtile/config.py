@@ -105,7 +105,9 @@ keys: List[Key] = [
         desc="Decreases volume"),
 
     Key([SUPER_KEY], "space", lazy.next_screen(),
-        desc="Toggle focused screen")
+        desc="Toggle focused screen"),
+
+    Key([SUPER_KEY, SHIFT_KEY], "q", lazy.spawn("poweroff"))
 ]
 
 groups: List[Group] = get_default_groups()
