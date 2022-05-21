@@ -187,11 +187,14 @@ class NetWidget(widget.Net):
 
 
 class CPUWidget(widget.CPU):
-    def __init__(self, theme: Theme):
+    def __init__(self, theme: Theme, terminal_launch_cmd: str = "terminator -e"):
         super(CPUWidget, self).__init__(
             background=theme.bar.first_widget.background,
             foreground=theme.bar.first_widget.text,
             format='CPU {load_percent}%',
+            mouse_callbacks={
+                'Button1': lazy.spawn(f"{terminal_launch_cmd} 'htop'")
+            },
             **_textbox_config
         )
 
