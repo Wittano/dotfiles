@@ -179,8 +179,7 @@ floating_layout = layout.Floating(
         Match(wm_class='maketag'),  # gitk
         Match(wm_class='ssh-askpass'),  # ssh-askpass
         Match(title='branchdialog'),  # gitk
-        Match(title='pinentry'),  # GPG key password entry
-        Match(wm_class=re.compile('[pP]inentry-gtk-2')),  # GPG key password entry
+        Match(wm_class=re.compile('[pP]inentry*')),  # GPG key password entry
     ]
 )
 
