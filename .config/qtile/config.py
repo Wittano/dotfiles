@@ -1,17 +1,21 @@
+import asyncio
 import os
 import re
 import subprocess
+import threading
+from datetime import datetime
 from typing import List
 
 import libqtile.hook
 from libqtile import layout
 from libqtile.config import Drag, Group, Key, Match
-from libqtile.lazy import lazy
+from libqtile.core.manager import Qtile
+from libqtile.lazy import lazy, LazyCall
 from libqtile.utils import guess_terminal
 
 from groups import get_default_groups
 from layouts import LayoutsCollection
-from monitors import get_monitors
+from monitors import get_monitors, get_monitors_name, map_wacom_to_one_monitor
 from themes import MyTheme
 from widgets import ScreenCreator
 
@@ -19,6 +23,10 @@ SUPER_KEY = "mod4"
 ALT_KEY = "mod1"
 SHIFT_KEY = "shift"
 CONTROL_KEY = "control"
+
+WEB_BROWSER = "vivaldi-stable"
+
+QTILE: Qtile = libqtile.qtile
 
 terminal = guess_terminal()
 
@@ -107,7 +115,9 @@ keys: List[Key] = [
     Key([SUPER_KEY], "space", lazy.next_screen(),
         desc="Toggle focused screen"),
 
-    Key([SUPER_KEY, SHIFT_KEY], "q", lazy.spawn("poweroff"))
+    Key([SUPER_KEY, SHIFT_KEY], "q", lazy.spawn("poweroff"), desc="Shutdown Linux"),
+
+    Key([SUPER_KEY], "b", lazy.spawn(WEB_BROWSER), desc="Launch web browser")
 ]
 
 groups: List[Group] = get_default_groups()
@@ -202,7 +212,18 @@ auto_minimize = False
 wmname = "LG3D"
 
 
+def _map_wacom_output(screen_index: int = 0):
+    threading.Thread(target=map_wacom_to_one_monitor, args=(screen_index,)).start()
+
+
 @libqtile.hook.subscribe.startup_once
 def autostart_hook():
     home_dir = os.environ['HOME']
     subprocess.call([f"{home_dir}/.config/qtile/autostart.sh"])
+
+    _map_wacom_output()
+
+
+@libqtile.hook.subscribe.current_screen_change
+async def map_tablet_to_one_monitor():
+    _map_wacom_output(QTILE.current_screen.index)

@@ -37,7 +37,8 @@ _games_staff: List[str] = [
     "hl2_linux",
     r"^([Mm]inecraft)(.+)",
     "Shogun2",
-    "openttd"
+    "openttd",
+    r"War Thunder*"
 ]
 
 _web_browsers: List[str] = [
