@@ -13,7 +13,7 @@ _run_if_exist() {
 declare -a programs
 
 programs=(
-  "discord"
+  "discord --no-sandbox"
   "nitrogen --restore"
   "redshift"
   "vivaldi-stable"
