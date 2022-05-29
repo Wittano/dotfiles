@@ -85,18 +85,15 @@ class ScreenCreator:
         ]
 
     def __get_central_bar_part(self):
-
         return [
-            *self.__info_powerline_sep,
-            KernelWidget(self.__theme),
-            *self.__second_powerline_sep,
+            *self.__info_powerline_sep_alt,
             VolumeWidget(self.__theme),
             *self.__first_powerline_sep,
             CPUWidget(self.__theme),
             *self.__second_powerline_sep,
             NetWidget(self.__theme),
             *self.__first_powerline_sep,
-            CheckUpdatesWidget(self.__theme),
+            MemoryWidget(self.__theme),
         ]
 
     def __get_right_bar_part(self, is_primary: bool = True):
@@ -277,3 +274,14 @@ class KernelWidget(widget.TextBox):
     @staticmethod
     def __create_kernel_version() -> str:
         return f"{platform.system()} {platform.release()}"
+
+
+class MemoryWidget(widget.Memory):
+    def __init__(self, theme: Theme):
+        super(MemoryWidget, self).__init__(
+            format="Mem: {MemUsed: .0f}{mm}/{MemTotal: .0f}{mm}",
+            measure_mem="G",
+            background=theme.bar.first_widget.background,
+            foreground=theme.bar.first_widget.text,
+            **_textbox_config
+        )
