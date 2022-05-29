@@ -1,6 +1,6 @@
 import os
 import subprocess
-from typing import List
+from typing import List, Optional
 
 import libqtile.log_utils
 
@@ -29,7 +29,7 @@ def map_wacom_to_one_monitor(screen_index: int):
                 f"Script {WACOM_SCRIPT_PATH} was ended failure by cause: {bytes.decode(error)}")
 
 
-def get_monitors_name() -> List[str] | None:
+def get_monitors_name() -> Optional[List[str]]:
     def get_monitor(x: str) -> str:
         return x.split(" ")[-1]
 

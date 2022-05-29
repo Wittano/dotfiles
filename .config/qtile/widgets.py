@@ -1,5 +1,5 @@
 import platform
-from typing import Tuple, List, Optional
+from typing import Tuple, List, Optional, Union
 
 from libqtile import widget, bar
 from libqtile.command import lazy
@@ -9,6 +9,16 @@ from libqtile.widget.textbox import TextBox
 
 from monitors import get_monitors
 from themes import Colors, Bar, Theme
+
+try:
+    with open("/etc/os-release", "r") as f:
+        for line in f.readlines():
+            key, value = line.split("=")
+            if key == "NAME":
+                DISTRO = value
+                break
+except FileNotFoundError:
+    DISTRO = "Debian"
 
 _textbox_config = dict(
     fontsize=14,
@@ -27,7 +37,7 @@ class ScreenCreator:
         self.__second_powerline_sep = self.__create_powerline_sep(theme.bar.second_widget, theme.bar.first_widget)
 
     @staticmethod
-    def __get_first_color_background(color: Colors | Bar, use_second_widget_color: Optional[bool] = False) -> str:
+    def __get_first_color_background(color: Union[Colors, Bar], use_second_widget_color: Optional[bool] = False) -> str:
         if isinstance(color, Colors):
             return color.background
         elif use_second_widget_color:
@@ -36,7 +46,7 @@ class ScreenCreator:
             return color.first_widget.background
 
     def __create_powerline_sep(self,
-                               first_color: Colors | Bar,
+                               first_color: Union[Colors, Bar],
                                second_color: Optional[Colors] = None,
                                use_second_widget_color: Optional[bool] = False) -> Tuple[TextBox, Sep]:
 
@@ -47,7 +57,7 @@ class ScreenCreator:
                 foreground=self.__get_first_color_background(first_color,
                                                              use_second_widget_color=use_second_widget_color),
                 background=second_color.background if second_color is not None else first_color.background,
-                fontsize=25,
+                fontsize=33,
                 padding=0
             ),
             widget.Sep(
@@ -213,15 +223,27 @@ class CheckUpdatesWidget(widget.CheckUpdates):
     def __init__(self, theme: Theme, terminal_launch_cmd: str = "terminator -e"):
         super(CheckUpdatesWidget, self).__init__(
             update_interval=1800,
-            distro="Arch_checkupdates",
             colour_have_updates=theme.bar.first_widget.text,
             colour_no_updates=theme.bar.first_widget.text,
-            execute=f"{terminal_launch_cmd} 'sudo pacman -Syyu'",
             background=theme.bar.first_widget.background,
             foreground=theme.bar.first_widget.text,
             no_update_string="N/A",
+            **self._get_distro(terminal_launch_cmd),
             **_textbox_config
         )
+
+    @staticmethod
+    def _get_distro(terminal_launch_cmd="terminator -e") -> dict[str, str]:
+        if "arch" in DISTRO.lower():
+            return {
+                "distro": "Arch_checkupdates",
+                "execute": f"{terminal_launch_cmd} 'sudo pacman -Syyu'"
+            }
+        else:
+            return {
+                "distro": "Debian",
+                "execute": f"{terminal_launch_cmd} 'sudo apt upgrade -y'"
+            }
 
 
 class ClockWidget(widget.Clock):

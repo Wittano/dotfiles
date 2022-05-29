@@ -1,6 +1,6 @@
 import re
 from itertools import chain
-from typing import List, Tuple
+from typing import List, Tuple, Union
 
 from libqtile.config import Match, Group
 
@@ -20,7 +20,7 @@ dev_group, www_group, sys_group, doc_group, virt_group, game_group, chat_group =
 class _WindowMatch:
 
     def __init__(self,
-                 group: str | int,
+                 group: Union[str, int],
                  match_rule: Match):
         self.group = group
         self.match_rule = match_rule
@@ -90,7 +90,7 @@ def get_default_groups() -> List[Group]:
     return _default_groups
 
 
-def _get_wm_name(wm_name: str) -> str | re.Pattern:
+def _get_wm_name(wm_name: str) -> Union[str, re.Pattern]:
     """
     Get Window name or Window name regex
 
