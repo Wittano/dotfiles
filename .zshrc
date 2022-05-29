@@ -92,3 +92,4 @@ alias yta='youtube-dl -x --audio-format mp3 -o "%(title)s.%(ext)s" --prefer-ffmp
 alias red='redshift -l 51.2181945:22.5546776'
 alias cld='bash $HOME/project/bash/cleanDocker.sh'
 alias ra='ranger'
+alias vm='bash $HOME/projects/config/system/scripts/select-vagrant-vm.sh'
