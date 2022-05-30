@@ -115,7 +115,7 @@ keys: List[Key] = [
     Key([SUPER_KEY], "space", lazy.next_screen(),
         desc="Toggle focused screen"),
 
-    Key([SUPER_KEY, SHIFT_KEY], "q", lazy.spawn("poweroff"), desc="Shutdown Linux"),
+    Key([SUPER_KEY, SHIFT_KEY], "q", lazy.spawn("systemctl poweroff"), desc="Shutdown Linux"),
 
     Key([SUPER_KEY], "b", lazy.spawn(WEB_BROWSER), desc="Launch web browser")
 ]
