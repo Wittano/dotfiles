@@ -63,7 +63,8 @@ _terminals: List[str] = [
 
 _science_staff: List[str] = [
     "Boincmgr",
-    "Virt-manager"
+    "Virt-manager",
+    "VirtualBox Manager"
 ]
 
 _music_staff: List[str] = [
