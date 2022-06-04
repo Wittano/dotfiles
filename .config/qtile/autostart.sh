@@ -7,7 +7,7 @@ _run_if_exist() {
   time=$(date +"%D %T")
 
   echo "[autostart] $time: Launch $app_name"
-  $1 2>"$log_dir/$1.log" || echo "[warning] $" &
+  $1 2>"$log_dir/$app_name.log" || echo "[warning] $" &
 }
 
 declare -a programs
