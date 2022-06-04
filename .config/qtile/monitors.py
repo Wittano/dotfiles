@@ -3,6 +3,8 @@ import subprocess
 from typing import List, Optional
 
 import libqtile.log_utils
+from libqtile.command import lazy
+from libqtile.core.manager import Qtile
 
 WACOM_SCRIPT_PATH: str = f"{os.environ['HOME']}/projects/config/system/scripts/wacom-multi-monitor.sh"
 
@@ -43,7 +45,7 @@ def get_monitors_name() -> Optional[List[str]]:
     return [monitor for monitor in map(get_monitor, monitors_list) if monitor]
 
 
-def get_monitors() -> int:
+def get_monitors_count() -> int:
     """
     Get number of active and connected monitors
 
@@ -60,3 +62,15 @@ def get_monitors() -> int:
     except Exception as error:
         libqtile.log_utils.logger.warning(error)
         return 1
+
+
+_MONITORS_COUNT = get_monitors_count()
+
+
+@lazy.function
+def swap_monitor(qtile: Qtile):
+    current_group = qtile.current_group
+    current_screen_index = qtile.current_screen.index
+    selected_screen = current_screen_index + 1 if current_screen_index + 1 < _MONITORS_COUNT else 0
+
+    qtile.groups_map[current_group.name].cmd_toscreen(selected_screen)

@@ -7,7 +7,7 @@ from libqtile.config import Screen
 from libqtile.widget.sep import Sep
 from libqtile.widget.textbox import TextBox
 
-from monitors import get_monitors
+from monitors import get_monitors_count
 from themes import Colors, Bar, Theme
 
 try:
@@ -97,8 +97,8 @@ class ScreenCreator:
         ]
 
     def __get_right_bar_part(self, is_primary: bool = True):
-        is_only_one_monitor: bool = is_primary and get_monitors() == 1
-        is_minor_monitor: bool = not is_primary and get_monitors() > 1
+        is_only_one_monitor: bool = is_primary and get_monitors_count() == 1
+        is_minor_monitor: bool = not is_primary and get_monitors_count() > 1
 
         right_part = [
             *(self.__second_powerline_sep if is_primary else self.__info_powerline_sep_alt),

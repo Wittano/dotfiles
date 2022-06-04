@@ -1,21 +1,21 @@
-import asyncio
 import os
 import re
 import subprocess
 import threading
-from datetime import datetime
-from typing import List
+from typing import List, Union
 
 import libqtile.hook
 from libqtile import layout
-from libqtile.config import Drag, Group, Key, Match
+from libqtile.config import Drag, Group, Key, Match, Screen
 from libqtile.core.manager import Qtile
-from libqtile.lazy import lazy, LazyCall
+from libqtile.group import _Group
+from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 
+import monitors
 from groups import get_default_groups
 from layouts import LayoutsCollection
-from monitors import get_monitors, get_monitors_name, map_wacom_to_one_monitor
+from monitors import get_monitors_count, map_wacom_to_one_monitor
 from themes import MyTheme
 from widgets import ScreenCreator
 
@@ -112,7 +112,10 @@ keys: List[Key] = [
     Key([SUPER_KEY], "o", lazy.spawn(f"amixer sset Master {volume_percent_ratio}%-"),
         desc="Decreases volume"),
 
-    Key([SUPER_KEY], "space", lazy.next_screen(),
+    Key([SUPER_KEY], "space", monitors.swap_monitor,
+        desc="Toggle focused window between monitors"),
+
+    Key([SUPER_KEY], "n", lazy.next_screen(),
         desc="Toggle focused screen"),
 
     Key([SUPER_KEY, SHIFT_KEY], "q", lazy.spawn("systemctl poweroff"), desc="Shutdown Linux"),
@@ -162,7 +165,7 @@ screen_creator = ScreenCreator(theme, terminal)
 
 screens = [
               screen_creator.create()
-          ] + [screen_creator.create(is_primary=False)] if get_monitors() > 1 else []
+          ] + [screen_creator.create(is_primary=False)] if get_monitors_count() > 1 else []
 
 # Drag floating layouts.
 mouse = [
@@ -175,7 +178,7 @@ mouse = [
 dgroups_key_binder = None
 dgroups_app_rules: List = []
 follow_mouse_focus = False
-bring_front_click = False
+bring_front_click = True
 cursor_warp = False
 
 floating_layout = layout.Floating(
