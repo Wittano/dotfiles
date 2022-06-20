@@ -5,3 +5,5 @@
 
 vms/**/.vagrant
 vms/**/data/**
+
+.idea
