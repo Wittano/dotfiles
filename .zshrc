@@ -27,7 +27,7 @@ else
   export EDITOR='vim'
 fi
 
-EDITOR=nvim
+EDITOR=vim
 PATH=$PATH:$HOME/.local/bin:$HOME/.cargo/bin
 VISUAL=$EDITOR
 SERVER_IP="192.168.1.160"
