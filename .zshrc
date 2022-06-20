@@ -66,6 +66,7 @@ alias yac="yadm commit"
 alias yas="yadm status"
 alias yapush="yadm push origin main"
 alias yapull="yadm pull origin main"
+alias yad="yadm diff"
 
 # Programming
 alias py='python3'
