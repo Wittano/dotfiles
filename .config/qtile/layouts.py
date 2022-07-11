@@ -39,3 +39,7 @@ class LayoutsCollection:
         ),
         self.vertical_tile_layout = layout.VerticalTile(**layout_theme)
         self.zoomy_layout = layout.Zoomy(**layout_theme)
+        self.spiral_layout = layout.Spiral(
+            ratio=0.6,
+            new_client_position='after_current',
+            **layout_theme)

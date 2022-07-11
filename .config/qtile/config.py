@@ -2,13 +2,12 @@ import os
 import re
 import subprocess
 import threading
-from typing import List, Union
+from typing import List
 
 import libqtile.hook
 from libqtile import layout
-from libqtile.config import Drag, Group, Key, Match, Screen
+from libqtile.config import Drag, Group, Key, Match
 from libqtile.core.manager import Qtile
-from libqtile.group import _Group
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 
@@ -34,6 +33,8 @@ theme = MyTheme()
 
 volume_percent_ratio = 5
 
+WITH_BAR = False
+
 keys: List[Key] = [
     # A list of available commands that can be bound to keys can be found
     # at https://docs.qtile.org/en/latest/manual/config/lazy.html
@@ -46,8 +47,6 @@ keys: List[Key] = [
     Key([SUPER_KEY], "j", lazy.layout.down(), desc="Move focus down"),
 
     Key([SUPER_KEY], "k", lazy.layout.up(), desc="Move focus up"),
-
-    Key([SUPER_KEY], "space", lazy.layout.next(), desc="Move window focus to other window"),
 
     # Move windows between left/right columns or move up/down in current stack.
     # Moving out of range in Columns layout will create new column.
@@ -65,10 +64,6 @@ keys: List[Key] = [
 
     Key([SUPER_KEY], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
 
-    # Toggle between split and unsplit sides of stack.
-    # Split = all windows displayed
-    # Unsplit = 1 window displayed, like Max layout, but still with
-    # multiple stack panes
     Key([SUPER_KEY, SHIFT_KEY], "Return", lazy.layout.toggle_split(),
         desc="Toggle between split and unsplit sides of stack"),
 
@@ -120,23 +115,25 @@ keys: List[Key] = [
 
     Key([SUPER_KEY, SHIFT_KEY], "q", lazy.spawn("systemctl poweroff"), desc="Shutdown Linux"),
 
-    Key([SUPER_KEY], "b", lazy.spawn(WEB_BROWSER), desc="Launch web browser")
+    Key([SUPER_KEY], "b", lazy.spawn(f"{terminal} -e btop"), desc="Launch web browser"),
+
+    Key([SUPER_KEY], "i", lazy.spawn(f"bash {os.environ['HOME']}/.local/bin/sys-info"),
+        desc="Show system info"),
+
+    Key([SUPER_KEY], "u", lazy.spawn(f"bash {os.environ['HOME']}/.local/bin/current-time"),
+        desc="Show system info")
 ]
 
 groups: List[Group] = get_default_groups()
 
 for group in groups:
     keys.extend([
-        # mod1 + letter of group = switch to group
         Key([SUPER_KEY], group.name, lazy.group[group.name].toscreen(),
             desc=f"Switch to group {group.name}"),
 
         Key([SUPER_KEY, SHIFT_KEY], group.name, lazy.window.togroup(group.name, switch_group=True),
             desc=f"Switch to & move focused window to group {group.name}"),
-        # Or, use below if you prefer not to switch to that group.
-        # # mod1 + shift + letter of group = move focused window to group
-        # Key([mod, "shift"], i.name, lazy.window.togroup(i.name),
-        #     desc="move focused window to group {}".format(i.name)),
+
         Key([SUPER_KEY, CONTROL_KEY], group.name, lazy.group[group.name].toscreen(1))
     ])
 
@@ -144,8 +141,7 @@ layout_collection = LayoutsCollection(theme)
 
 layouts = [
     layout_collection.max_layout,
-    layout_collection.monad_tall_layout,
-    layout_collection.monad_wide_layout,
+    layout_collection.monad_tall_layout
 ]
 
 widget_defaults = dict(
@@ -163,9 +159,12 @@ widget_config = dict(
 
 screen_creator = ScreenCreator(theme, terminal)
 
-screens = [
-              screen_creator.create()
-          ] + [screen_creator.create(is_primary=False)] if get_monitors_count() > 1 else []
+if WITH_BAR:
+    screens = [
+                  screen_creator.create()
+              ] + [screen_creator.create(is_primary=False)] if get_monitors_count() > 1 else []
+else:
+    screens = [screen_creator.create_without_bar() for _ in range(get_monitors_count())]
 
 # Drag floating layouts.
 mouse = [
@@ -184,6 +183,7 @@ cursor_warp = False
 floating_layout = layout.Floating(
     border_focus=theme.border_focus,
     border_normal=theme.border_normal,
+    border_width=2,
     float_rules=[
         # Run the utility of `xprop` to see the wm class and name of an X client.
         *layout.Floating.default_float_rules,

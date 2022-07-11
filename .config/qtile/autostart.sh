@@ -13,11 +13,11 @@ _run_if_exist() {
 declare -a programs
 
 programs=(
-  "discord --no-sandbox"
   "nitrogen --restore"
   "redshift"
   "vivaldi-stable"
   "spotify"
+  "bash $HOME/.screenlayout/pc.sh"
 )
 
 for app in "${programs[@]}"; do

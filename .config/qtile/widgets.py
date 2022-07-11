@@ -110,6 +110,10 @@ class ScreenCreator:
 
         return right_part
 
+    @staticmethod
+    def create_without_bar():
+        return Screen()
+
     def create(self, is_primary: bool = True) -> Screen:
         if is_primary:
             widgets = self.__get_navigation_bar_part() + self.__get_central_bar_part() + self.__get_right_bar_part()

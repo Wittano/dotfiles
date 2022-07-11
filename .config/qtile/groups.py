@@ -7,9 +7,9 @@ from libqtile.config import Match, Group
 _default_groups = [
     Group(name="1", label="dev", layout="max"),
     Group(name="2", label="www", layout="max"),
-    Group(name="3", label="sys", layout="monadtall"),
+    Group(name="3", label="sys", layout="max"),
     Group(name="4", label="doc", layout="max"),
-    Group(name="5", label="virt", layout="monadtall"),
+    Group(name="5", label="virt", layout="max"),
     Group(name="6", label="game", layout="max"),
     Group(name="7", label="chat", layout="max"),
 ]
