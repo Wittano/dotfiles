@@ -15,7 +15,7 @@ import monitors
 from groups import get_default_groups
 from layouts import LayoutsCollection
 from monitors import get_monitors_count, map_wacom_to_one_monitor
-from themes import MyTheme
+from themes import MyTheme, DraculaTheme
 from widgets import ScreenCreator
 
 SUPER_KEY = "mod4"
@@ -29,7 +29,7 @@ QTILE: Qtile = libqtile.qtile
 
 terminal = guess_terminal()
 
-theme = MyTheme()
+theme = DraculaTheme()
 
 volume_percent_ratio = 5
 
@@ -176,9 +176,9 @@ mouse = [
 
 dgroups_key_binder = None
 dgroups_app_rules: List = []
-follow_mouse_focus = False
+follow_mouse_focus = True
 bring_front_click = True
-cursor_warp = False
+cursor_warp = True
 
 floating_layout = layout.Floating(
     border_focus=theme.border_focus,

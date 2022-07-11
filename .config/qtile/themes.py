@@ -79,8 +79,8 @@ class MyTheme(Theme):
 
 class DraculaTheme(Theme):
     border_normal = "#44475a"
-    border_focus = "#86E1FC"
-    active_border = "#bd93f9"
+    border_focus = "#bd93f9"
+    active_border = "#ff79c6"
     window_name = "#FF5555"
 
     bar = Bar(
