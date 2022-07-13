@@ -12,6 +12,7 @@ from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 
 import monitors
+import scripts
 from groups import get_default_groups
 from layouts import LayoutsCollection
 from monitors import get_monitors_count, map_wacom_to_one_monitor
@@ -36,10 +37,6 @@ volume_percent_ratio = 5
 WITH_BAR = False
 
 keys: List[Key] = [
-    # A list of available commands that can be bound to keys can be found
-    # at https://docs.qtile.org/en/latest/manual/config/lazy.html
-
-    # Switch between windows
     Key([SUPER_KEY], "h", lazy.layout.left(), desc="Move focus to left"),
 
     Key([SUPER_KEY], "l", lazy.layout.right(), desc="Move focus to right"),
@@ -48,21 +45,10 @@ keys: List[Key] = [
 
     Key([SUPER_KEY], "k", lazy.layout.up(), desc="Move focus up"),
 
-    # Move windows between left/right columns or move up/down in current stack.
-    # Moving out of range in Columns layout will create new column.
     Key([SUPER_KEY, SHIFT_KEY], "h", lazy.layout.shuffle_left(), desc="Move window to the left"),
     Key([SUPER_KEY, SHIFT_KEY], "l", lazy.layout.shuffle_right(), desc="Move window to the right"),
     Key([SUPER_KEY, SHIFT_KEY], "j", lazy.layout.shuffle_down(), desc="Move window down"),
     Key([SUPER_KEY, SHIFT_KEY], "k", lazy.layout.shuffle_up(), desc="Move window up"),
-
-    # Grow windows. If current window is on the edge of screen and direction
-    # will be to screen edge - window would shrink.
-    Key([SUPER_KEY, CONTROL_KEY], "h", lazy.layout.grow_left(), desc="Grow window to the left"),
-    Key([SUPER_KEY, CONTROL_KEY], "l", lazy.layout.grow_right(), desc="Grow window to the right"),
-    Key([SUPER_KEY, CONTROL_KEY], "j", lazy.layout.grow_down(), desc="Grow window down"),
-    Key([SUPER_KEY, CONTROL_KEY], "k", lazy.layout.grow_up(), desc="Grow window up"),
-
-    Key([SUPER_KEY], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
 
     Key([SUPER_KEY, SHIFT_KEY], "Return", lazy.layout.toggle_split(),
         desc="Toggle between split and unsplit sides of stack"),
@@ -76,9 +62,6 @@ keys: List[Key] = [
     Key([SUPER_KEY, ALT_KEY], "r", lazy.reload_config(), desc="Reload the config"),
 
     Key([SUPER_KEY, ALT_KEY], "q", lazy.shutdown(), desc="Shutdown Qtile"),
-
-    Key([SUPER_KEY], "r", lazy.spawncmd(),
-        desc="Spawn a command using a prompt widget"),
 
     Key([SUPER_KEY], "f", lazy.window.toggle_fullscreen(),
         desc="Put the focused window to/from fullscreen mode"),
@@ -113,14 +96,15 @@ keys: List[Key] = [
     Key([SUPER_KEY], "n", lazy.next_screen(),
         desc="Toggle focused screen"),
 
-    Key([SUPER_KEY, SHIFT_KEY], "q", lazy.spawn("systemctl poweroff"), desc="Shutdown Linux"),
+    Key([SUPER_KEY, SHIFT_KEY], "q", lazy.spawn(f"bash {scripts.get_script_from_local_bin('switch-off')}"),
+        desc="Shutdown Linux"),
 
     Key([SUPER_KEY], "b", lazy.spawn(f"{terminal} -e btop"), desc="Launch web browser"),
 
-    Key([SUPER_KEY], "i", lazy.spawn(f"bash {os.environ['HOME']}/.local/bin/sys-info"),
+    Key([SUPER_KEY], "i", lazy.spawn(f"bash {scripts.get_script_from_local_bin('sys-info')}"),
         desc="Show system info"),
 
-    Key([SUPER_KEY], "u", lazy.spawn(f"bash {os.environ['HOME']}/.local/bin/current-time"),
+    Key([SUPER_KEY], "u", lazy.spawn(f"bash {scripts.get_script_from_local_bin('current-time')}"),
         desc="Show system info")
 ]
 
