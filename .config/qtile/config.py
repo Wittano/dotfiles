@@ -34,7 +34,7 @@ theme = DraculaTheme()
 
 volume_percent_ratio = 5
 
-WITH_BAR = False
+WITH_BAR = True
 
 keys: List[Key] = [
     Key([SUPER_KEY], "h", lazy.layout.left(), desc="Move focus to left"),
@@ -162,7 +162,7 @@ dgroups_key_binder = None
 dgroups_app_rules: List = []
 follow_mouse_focus = True
 bring_front_click = True
-cursor_warp = True
+cursor_warp = False
 
 floating_layout = layout.Floating(
     border_focus=theme.border_focus,
@@ -181,7 +181,7 @@ floating_layout = layout.Floating(
 )
 
 auto_fullscreen = True
-focus_on_window_activation = "smart"
+focus_on_window_activation = "never"
 reconfigure_screens = True
 
 # If things like steam games want to auto-minimize themselves when losing
