@@ -1,4 +1,5 @@
 import abc
+import enum
 
 
 class Colors:
@@ -77,20 +78,42 @@ class MyTheme(Theme):
     )
 
 
+_DRACULA_COLORS = {
+    "background": "#282a36",
+    "current_line": "#44475a",
+    "selection": "#44475a",
+    "foreground": "#f8f8f2",
+    "comment": "#6272a4",
+    "cyan": "#8be9fd",
+    "green": "#50fa7b",
+    "orange": "#ffb86c",
+    "pink": "#ff79c6",
+    "purple": "#bd93f9",
+    "red": "#ff5555",
+    "yellow": "#f1fa8c"
+}
+
+
 class DraculaTheme(Theme):
-    border_normal = "#44475a"
-    border_focus = "#bd93f9"
-    active_border = "#ff79c6"
-    window_name = "#FF5555"
+    border_normal = _DRACULA_COLORS["selection"]
+    border_focus = _DRACULA_COLORS["purple"]
+    active_border = _DRACULA_COLORS["pink"]
+    window_name = _DRACULA_COLORS["green"]
 
     bar = Bar(
-        background="#212337",
-        foreground="#c8d3f5",
-        separator_color="#555",
-        focused_workspace=Colors(border="#6272A4", background="#6272A4", text="#F8F8F2"),
-        active_workspace=Colors(border="#44475A", background="#44475A", text="#F8F8F2"),
-        inactive_workspace=Colors(border="#282A36", background="#282A36", text="#BFBFBF"),
-        urgent_workspace=Colors(border="#44475A", background="#FF5555", text="#F8F8F2"),
-        first_widget=Colors(border="#44475A", background="#6272A4", text="#F8F8F2"),
-        second_widget=Colors(border="#44475A", background="#44475A", text="#F8F8F2")
+        background=_DRACULA_COLORS["background"],
+        foreground=_DRACULA_COLORS["foreground"],
+        separator_color=_DRACULA_COLORS["current_line"],
+        focused_workspace=Colors(border=_DRACULA_COLORS["comment"], background=_DRACULA_COLORS["comment"],
+                                 text=_DRACULA_COLORS["foreground"]),
+        active_workspace=Colors(border=_DRACULA_COLORS["selection"], background=_DRACULA_COLORS["selection"],
+                                text=_DRACULA_COLORS["foreground"]),
+        inactive_workspace=Colors(border=_DRACULA_COLORS["background"], background=_DRACULA_COLORS["background"],
+                                  text="#BFBFBF"),
+        urgent_workspace=Colors(border=_DRACULA_COLORS["selection"], background=_DRACULA_COLORS["red"],
+                                text=_DRACULA_COLORS["foreground"]),
+        first_widget=Colors(border=_DRACULA_COLORS["selection"], background=_DRACULA_COLORS["comment"],
+                            text=_DRACULA_COLORS["foreground"]),
+        second_widget=Colors(border=_DRACULA_COLORS["selection"], background=_DRACULA_COLORS["selection"],
+                             text=_DRACULA_COLORS["foreground"])
     )
