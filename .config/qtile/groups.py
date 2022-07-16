@@ -81,6 +81,7 @@ matches: List[_WindowMatch] = [
     _WindowMatch(group="3", match_rule=Match(wm_class="Org.gnome.Nautilus")),
     _WindowMatch(group="1", match_rule=Match(wm_class="Postman")),
     _WindowMatch(group="7", match_rule=Match(wm_class=re.compile("[sS]ignal*"))),
+    _WindowMatch(group="4", match_rule=Match(wm_class=re.compile("[kK]rita*"))),
 ]
 
 
